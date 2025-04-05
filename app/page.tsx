@@ -1,103 +1,90 @@
-import Image from "next/image";
+'use client'
+
+import Header from './components/Header'
+import Image from 'next/image'
+import { Montserrat } from 'next/font/google'
+import { ArrowRight } from 'lucide-react'
+
+const montserrat = Montserrat({ subsets: ['latin'] })
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <main className="relative">
+      <Header />
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+      {/* Hero Section */}
+      <div className="min-h-screen bg-black text-white relative overflow-hidden px-8">
+        {/* Background Z */}
+        <div className="absolute top-0 left-0 right-0 flex justify-center">
+          <div className="relative w-[60vh] h-[60vh] mt-16">
             <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
+              src="/images/zblack.png"
+              alt="Z"
+              fill
+              style={{ objectFit: 'contain' }}
+              priority
             />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
-  );
+
+        {/* Content */}
+        <div className="container mx-auto pt-32 relative z-10">
+          <div className="flex flex-col items-center justify-center min-h-[calc(100vh-128px)]">
+            {/* AI Solutions Text */}
+            <div className="text-center mb-48">
+              <h2 className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-400 text-2xl mb-2 font-bold">
+                Customized AI Solutions
+              </h2>
+              <h3 className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-cyan-300 text-xl">
+                For Every Business
+              </h3>
+            </div>
+
+            {/* Bottom Text */}
+            <div className="absolute bottom-12 w-full flex justify-between items-center">
+              <h1 className={`text-4xl tracking-[0.2em] font-light ${montserrat.className}`}>
+                TAILORED.TRANSFORMATIVE
+              </h1>
+              <span className="text-sm text-cyan-500">01/05</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* About Section */}
+      <div className="min-h-screen bg-[#f5f5f5] relative px-8 py-24">
+        <div className="container mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            {/* Left Content */}
+            <div className="space-y-8">
+              <h2 className="text-gray-500 text-lg tracking-wider">/ ABOUT</h2>
+              <div className="space-y-6 text-gray-700">
+                <p className="text-lg leading-relaxed">
+                  In the history of business & commerce, there has been no game-changer like Artificial Intelligence. Most earlier transformative technologies like electricity, industrial machines and computers, needed capital investments that could not be afforded by many. But AI can be a leveler. It can tip the scales in favor of the ones who decide to embrace it. We enable this revolution by making AI accessible and inclusive.
+                </p>
+                <p className="text-lg leading-relaxed">
+                  We let each business decide the extent to which they want to know, engage with or use AI. From consulting, to training, to targeted AI implementations to comprehensive AI first digital transformation, we offer bespoke solutions that allow everyone to be a part of the AI revolution.
+                </p>
+                <button className="border border-gray-300 px-6 py-3 text-sm inline-flex items-center hover:bg-gray-100 transition-colors">
+                  MORE ABOUT US <ArrowRight className="ml-2 h-4 w-4" />
+                </button>
+              </div>
+            </div>
+
+            {/* Right Image */}
+            <div className="relative h-[600px] w-full">
+              <Image
+                src="/images/3d.png"
+                alt="Beyond Z 3D"
+                fill
+                style={{ objectFit: 'contain' }}
+                className="hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  )
 }
+
