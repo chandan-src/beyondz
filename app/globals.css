@@ -197,17 +197,3 @@ h6 {
     box-shadow: 0 0 5px rgba(0, 102, 255, 0.3);
   }
 }
-
-/* About page styles */
-.slashed-heading {
-  position: relative;
-  display: inline-block;
-}
-
-.slashed-heading::before {
-  content: "/";
-  position: absolute;
-  left: -1.5rem;
-  color: #0066ff;
-  font-weight: bold;
-}

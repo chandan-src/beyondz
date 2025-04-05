@@ -1,6 +1,5 @@
 import React from 'react';
 import { ArrowRight } from "lucide-react";
-import Link from 'next/link';
 
 const Digital = () => {
     return (
@@ -118,12 +117,10 @@ const Digital = () => {
 
                 {/* CTA Button */}
                 <div className="mt-8 flex justify-center">
-                    <Link href="/about">
-                        <button className="blue-button animate-glow">
-                            <span>SEE OUR SOLUTIONS</span>
-                            <ArrowRight size={16} />
-                        </button>
-                    </Link>
+                    <button className="blue-button animate-glow">
+                        <span>SEE OUR SOLUTIONS</span>
+                        <ArrowRight size={16} />
+                    </button>
                 </div>
 
                 {/* Bottom Navigation Dots */}

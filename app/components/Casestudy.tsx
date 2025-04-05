@@ -42,7 +42,7 @@ const Index = () => {
       id: 3,
       title: "Knowledge Base Management",
       subtitle: "in Retail Banking",
-      imageSrc: "https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1674&q=80",
+      imageSrc: "https://images.unsplash.com/photo-1626863905121-3b0c0ed7b8c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80",
       caseNumber: "CASE STUDY 03"
     },
     {
@@ -75,7 +75,7 @@ const Index = () => {
         <div className="mb-8">
           {/* Centered Title */}
           <div className="text-center mb-8">
-         
+
             <h2 className="text-3xl font-bold bg-gradient-to-r from-[#003366] to-[#00a2ff] bg-clip-text text-transparent">
               Case Studies
             </h2>
