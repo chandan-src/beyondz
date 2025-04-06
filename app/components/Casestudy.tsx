@@ -1,4 +1,5 @@
 import { ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 const CaseStudyCard = ({ title, subtitle, imageSrc, caseNumber }: { title: string, subtitle: string, imageSrc: string, caseNumber: string }) => {
   return (
@@ -110,10 +111,10 @@ const Index = () => {
 
         {/* Explore Button */}
         <div className="flex justify-end">
-          <button className="explore-btn text-[#00a2ff] px-5 py-2 rounded flex items-center space-x-2 text-sm">
+          <Link href="/casestudy" className="explore-btn text-[#00a2ff] px-5 py-2 rounded flex items-center space-x-2 text-sm">
             <span>EXPLORE OUR CASE STUDIES</span>
             <ArrowRight size={16} />
-          </button>
+          </Link>
         </div>
       </div>
     </div>

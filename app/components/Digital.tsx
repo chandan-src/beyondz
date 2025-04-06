@@ -1,5 +1,6 @@
 import React from 'react';
 import { ArrowRight } from "lucide-react";
+import Link from 'next/link';
 
 const Digital = () => {
     return (
@@ -10,12 +11,9 @@ const Digital = () => {
 
             <div className="max-w-6xl mx-auto">
                 {/* Header Section */}
-
                 <div className="mb-8">
                     {/* Centered Title */}
                     <div className="text-center mb-8">
-
-
                         <h1 className="text-3xl font-bold bg-gradient-to-r from-digital-blue to-digital-cyan bg-clip-text text-transparent">
                             / Digital Transformation
                         </h1>
@@ -32,10 +30,6 @@ const Digital = () => {
                         </p>
                     </div>
                 </div>
-
-
-
-
 
                 {/* Stacked Cards Section */}
                 <div className="relative">
@@ -105,10 +99,6 @@ const Digital = () => {
                                             </div>
                                         </div>
                                     </div>
-
-                                    <div className="hidden">
-                                        {/* This would be additional content that appears to be partially visible in the reference */}
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -117,10 +107,10 @@ const Digital = () => {
 
                 {/* CTA Button */}
                 <div className="mt-8 flex justify-center">
-                    <button className="blue-button animate-glow">
+                    <Link href="/digital" className="blue-button animate-glow">
                         <span>SEE OUR SOLUTIONS</span>
                         <ArrowRight size={16} />
-                    </button>
+                    </Link>
                 </div>
 
                 {/* Bottom Navigation Dots */}

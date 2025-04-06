@@ -1,5 +1,6 @@
 import React from "react";
 import { ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 const Blogs = () => {
   return (
@@ -83,10 +84,10 @@ const Blogs = () => {
 
       {/* Bottom Button */}
       <div className="flex justify-end mt-6">
-        <button className="bg-blue-600 text-white text-sm rounded-full px-4 py-2 flex items-center">
+        <Link href="/blog" className="bg-blue-600 text-white text-sm rounded-full px-4 py-2 flex items-center">
           All Articles
           <ArrowRight size={16} className="ml-1" />
-        </button>
+        </Link>
       </div>
     </div>
   );

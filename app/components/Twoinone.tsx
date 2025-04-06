@@ -24,7 +24,7 @@ const Twoinone = () => {
               adipiscing elit sed diam nonummy
             </p>
             <a
-              href="#"
+              href="/contactus"
               className="border border-cyan-500 text-cyan-500 py-2 sm:py-3 px-4 sm:px-6 flex items-center justify-center hover:bg-cyan-900 hover:bg-opacity-30 transition-all text-xs sm:text-sm"
             >
               LET'S TALK

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button } from "@/components/ui/button";
 import { ArrowUpRight } from "lucide-react";
+import Link from 'next/link';
 
 const Training = () => {
   return (
@@ -33,10 +34,12 @@ const Training = () => {
             </p>
 
             <div className="mt-6 sm:mt-8 flex justify-center sm:justify-end">
-              <Button className="bg-transparent hover:bg-blue-900/40 text-blue-400 border border-blue-400 rounded-sm px-4 sm:px-6 py-2 sm:py-3 text-xs sm:text-sm uppercase tracking-wider flex items-center group transition-all duration-300">
-                Explore our training programs
-                <ArrowUpRight size={14} className="ml-2 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-              </Button>
+              <Link href="/training">
+                <Button className="bg-transparent hover:bg-blue-900/40 text-blue-400 border border-blue-400 rounded-sm px-4 sm:px-6 py-2 sm:py-3 text-xs sm:text-sm uppercase tracking-wider flex items-center group transition-all duration-300">
+                  Explore our training programs
+                  <ArrowUpRight size={14} className="ml-2 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                </Button>
+              </Link>
             </div>
           </div>
         </div>

@@ -34,7 +34,7 @@ const Header = () => {
                 {/* Right - Let's Talk Button */}
                 <div className="h-[50px] sm:h-[60px] md:h-[64px] w-full sm:w-[150px] md:w-[195px] flex items-center justify-center">
                     <Link
-                        href="/contact-us"
+                        href="/contactus"
                         className="bg-[#333333] text-white h-full w-full px-3 sm:px-4 md:px-6 py-1 sm:py-2 text-xs sm:text-sm hover:bg-[#404040] transition-colors rounded-sm flex items-center justify-center"
                     >
                         LET'S TALK →

@@ -1,5 +1,6 @@
 import { Montserrat } from "next/font/google";
 import Image from "next/image";
+import Link from "next/link";
 const montserrat = Montserrat({ subsets: ['latin'] })
 
 const Hero = () => {
@@ -37,9 +38,9 @@ const Hero = () => {
                             TAILORED.TRANSFORMATIVE
                         </h1>
                         <div className="flex items-center gap-2 sm:gap-3 md:gap-4">
-                            <button className="bg-blue-600 text-white px-4 sm:px-5 md:px-6 py-1.5 sm:py-2 text-xs sm:text-sm hover:bg-blue-700 transition-colors rounded-sm">
+                            <Link href="/training" className="bg-blue-600 text-white px-4 sm:px-5 md:px-6 py-1.5 sm:py-2 text-xs sm:text-sm hover:bg-blue-700 transition-colors rounded-sm">
                                 EXPLORE
-                            </button>
+                            </Link>
                         </div>
                     </div>
                 </div>
