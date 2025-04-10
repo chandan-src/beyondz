@@ -38,7 +38,7 @@ const AboutPage = () => {
 
     return (
         <main className="min-h-screen bg-black text-white">
-            <Header />
+         
             <div className="flex items-center justify-center min-h-screen bg-black p-4">
                 <div className="w-full max-w-3xl bg-[#d8d8d8] rounded-lg overflow-hidden shadow-lg">
                     {/* Form Header */}

@@ -8,7 +8,7 @@ import { Button } from '@/components/ui/button';
 const AboutPage = () => {
     return (
         <main className="min-h-screen bg-black text-white">
-            <Header />
+         
             <div className="min-h-screen bg-black text-white flex flex-col">
                 {/* Hero Section with Image and Title */}
                 <div className="relative w-full h-screen  ">

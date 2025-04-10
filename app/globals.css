@@ -2,6 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities {
+  .mt-screen {
+    margin-top: 100vh;
+  }
+  .pt-screen {
+    padding-top: 100vh;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-rgb: 255, 255, 255;
@@ -153,7 +166,11 @@ h6 {
 
 .card-gradient-border {
   border: 1px solid rgba(0, 102, 255, 0.2);
-  background: linear-gradient(to right, rgba(0, 102, 255, 0.1), rgba(0, 255, 255, 0.1));
+  background: linear-gradient(
+    to right,
+    rgba(0, 102, 255, 0.1),
+    rgba(0, 255, 255, 0.1)
+  );
 }
 
 .card-dark-gradient {

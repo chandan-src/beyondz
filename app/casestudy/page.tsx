@@ -9,7 +9,7 @@ import { ArrowRight } from 'lucide-react';
 const AboutPage = () => {
     return (
         <main className="min-h-screen bg-black text-white">
-            <Header />
+        
             <div className="min-h-screen bg-black flex items-center justify-center p-4">
       {/* Main Card */}
       <div className="w-full max-w-5xl bg-[#141620] rounded-3xl overflow-hidden shadow-2xl">

@@ -54,7 +54,7 @@ const blogs = [
 const AboutPage = () => {
     return (
         <main className="min-h-screen bg-black text-white">
-            <Header />
+          
             <div className="min-h-screen bg-black text-white p-8">
       {/* Header section with breadcrumb */}
       <div className="mb-12">

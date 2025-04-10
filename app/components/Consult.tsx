@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
+import { motion } from "framer-motion"
 const Consult = () => {
   return (
     <div className="min-h-screen w-full relative overflow-hidden bg-black text-white">
@@ -20,12 +21,18 @@ const Consult = () => {
       <div className="relative z-10 w-full max-w-7xl mx-auto h-screen flex flex-col">
 
         {/* Centered header section */}
-        <div className="pt-16 flex items-center justify-center">
+        <motion.div
+          className="pt-16 flex items-center justify-center"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.3, ease: "easeOut" }}
+        >
           <div className="flex items-center gap-3">
             <div className="h-6 w-1 bg-blue-500"></div>
             <h1 className="text-4xl font-bold text-blue-500">Consulting</h1>
           </div>
-        </div>
+        </motion.div>
 
         {/* Center content */}
         <div className="flex-1 flex items-center justify-between px-10">
@@ -43,17 +50,41 @@ const Consult = () => {
 
 
             {/* Description text */}
-            <p className="text-right text-sm text-gray-300 max-w-md mt-4">
-              We have consulting packages for companies at all stages in their AI adoption journey. This includes companies who are merely trying to understand AI and their options through our ReadinessReview.AI service, as well as companies who would like guidance on how to transform themselves and be AI first.
-
-
-
-
-
-
-
-
-            </p>
+            <motion.div
+              className="text-right text-sm text-gray-300 max-w-md mt-4"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.4, ease: "easeOut" }}
+            >
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{
+                  duration: 0.4,
+                  staggerChildren: 0.08
+                }}
+              >
+                {["We have consulting packages for companies at all stages in their AI adoption journey.",
+                  "This includes companies who are merely trying to understand AI and their options through our ReadinessReview.AI service,",
+                  "as well as companies who would like guidance on how to transform themselves and be AI first."].map((line, index) => (
+                    <motion.span
+                      key={index}
+                      className="block"
+                      initial={{ opacity: 0, y: 10 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true, amount: 0.3 }}
+                      transition={{
+                        duration: 0.3,
+                        delay: index * 0.15
+                      }}
+                    >
+                      {line}
+                    </motion.span>
+                  ))}
+              </motion.p>
+            </motion.div>
 
             {/* Explore button */}
             <Link href="/consult"
@@ -77,3 +108,17 @@ const Consult = () => {
   )
 }
 export default Consult;
+
+
+
+
+
+
+
+
+
+
+
+
+
+

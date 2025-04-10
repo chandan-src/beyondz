@@ -1,24 +1,59 @@
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
-const CaseStudyCard = ({ title, subtitle, imageSrc, caseNumber }: { title: string, subtitle: string, imageSrc: string, caseNumber: string }) => {
+const CaseStudyCard = ({ title, subtitle, imageSrc, caseNumber, index }: { title: string, subtitle: string, imageSrc: string, caseNumber: string, index: number }) => {
   return (
-    <div className="case-study-card relative rounded overflow-hidden h-[250px] group">
+    <motion.div
+      initial={{ scale: 0.9, opacity: 0, y: 20 }}
+      whileInView={{
+        scale: 1,
+        opacity: 1,
+        y: 0,
+        transition: {
+          duration: 0.5,
+          delay: index * 0.1
+        }
+      }}
+      viewport={{ once: true, margin: "-100px" }}
+      whileHover={{
+        scale: 1.05,
+        transition: { duration: 0.3 }
+      }}
+      className="case-study-card relative rounded overflow-hidden h-[250px] group"
+    >
+      <motion.div
+        className="absolute inset-0 bg-gradient-to-br from-[#00a2ff]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+        initial={{ opacity: 0 }}
+        whileHover={{ opacity: 1 }}
+      />
       <div className="absolute top-3 left-3 text-xs text-gray-400">{caseNumber}</div>
       <div className="z-logo absolute top-3 right-3 text-[#00a2ff] font-bold">Z</div>
       <div className="h-full w-full">
-        <img src={imageSrc} alt={title} className="w-full h-full object-cover opacity-40" />
+        <motion.img
+          src={imageSrc}
+          alt={title}
+          className="w-full h-full object-cover opacity-40 group-hover:opacity-60 transition-opacity duration-300"
+          initial={{ scale: 1 }}
+          whileHover={{ scale: 1.1 }}
+          transition={{ duration: 0.3 }}
+        />
       </div>
       <div className="absolute bottom-0 left-0 p-4 w-full">
         <h3 className="text-sm font-bold highlight-text mb-1">{title}</h3>
         <p className="text-xs text-gray-400">{subtitle}</p>
       </div>
-      <div className="absolute bottom-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity">
-        <button className="text-xs text-[#00a2ff] px-2 py-1 rounded border border-[#00a2ff]">
+      <motion.div
+        className="absolute bottom-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity"
+        initial={{ y: 10, opacity: 0 }}
+        whileHover={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.3 }}
+      >
+        <button className="text-xs text-[#00a2ff] px-2 py-1 rounded border border-[#00a2ff] hover:bg-[#00a2ff]/10 transition-colors">
           View
         </button>
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 };
 
@@ -43,7 +78,7 @@ const Index = () => {
       id: 3,
       title: "Knowledge Base Management",
       subtitle: "in Retail Banking",
-      imageSrc: "https://images.unsplash.com/photo-1626863905121-3b0c0ed7b8c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80",
+      imageSrc: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80",
       caseNumber: "CASE STUDY 03"
     },
     {
@@ -72,18 +107,41 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-[#0d121e] text-white">
       {/* Case Studies Section */}
-      <div className="w-full max-w-7xl mx-auto px-4 py-16">
-        <div className="mb-8">
+      <motion.div
+        className="w-full max-w-7xl mx-auto px-4 py-16"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5 }}
+      >
+        <motion.div
+          className="mb-8"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+        >
           {/* Centered Title */}
           <div className="text-center mb-8">
-
-            <h2 className="text-3xl font-bold bg-gradient-to-r from-[#003366] to-[#00a2ff] bg-clip-text text-transparent">
+            <motion.h2
+              className="text-3xl font-bold bg-gradient-to-r from-[#003366] to-[#00a2ff] bg-clip-text text-transparent"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+            >
               Case Studies
-            </h2>
+            </motion.h2>
           </div>
 
           {/* Right-aligned Content */}
-          <div className="max-w-3xl ml-auto">
+          <motion.div
+            className="max-w-3xl ml-auto"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+          >
             <p className="text-gray-400 mb-6 text-sm leading-relaxed">
               Our curated case studies showcase how AI can be transformational across industries and
               contexts. Browse through them, and if any use case resonates with your business, feel free to
@@ -93,30 +151,37 @@ const Index = () => {
               Even if none of the case studies seem directly relevant, don't hesitate to contact us. We may
               be able to craft a customized solution to help you disrupt your industry.
             </p>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
         {/* Grid of Case Studies */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mb-12">
-          {caseStudies.map((study) => (
+          {caseStudies.map((study, index) => (
             <CaseStudyCard
               key={study.id}
               title={study.title}
               subtitle={study.subtitle}
               imageSrc={study.imageSrc}
               caseNumber={study.caseNumber}
+              index={index}
             />
           ))}
         </div>
 
         {/* Explore Button */}
-        <div className="flex justify-end">
+        <motion.div
+          className="flex justify-end"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.6 }}
+        >
           <Link href="/casestudy" className="explore-btn text-[#00a2ff] px-5 py-2 rounded flex items-center space-x-2 text-sm">
             <span>EXPLORE OUR CASE STUDIES</span>
             <ArrowRight size={16} />
           </Link>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </div>
   );
 };

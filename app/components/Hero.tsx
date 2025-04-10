@@ -12,7 +12,8 @@ const Hero = () => {
                     <Image
                         src="/images/zblack.png"
                         alt="Z"
-                        fill
+                        width={220}
+                        height={300}
                         style={{ objectFit: 'contain' }}
                         priority
                     />
@@ -23,7 +24,7 @@ const Hero = () => {
             <div className="container mx-auto pt-16 sm:pt-24 md:pt-32 relative z-10">
                 <div className="flex flex-col items-center justify-center min-h-[calc(100vh-100px)] sm:min-h-[calc(100vh-120px)] md:min-h-[calc(100vh-128px)]">
                     {/* AI Solutions Text */}
-                    <div className="text-center mb-[150px] sm:mb-[200px] md:mb-[300px]">
+                    <div className="text-center mb-[100px] sm:mb-[150px] md:mb-[400px]">
                         <h2 className="text-transparent mr-[50px] sm:mr-[100px] md:mr-[150px] bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-400 text-xl sm:text-2xl md:text-3xl mb-2 font-bold">
                             Customized AI Solutions
                         </h2>
@@ -33,7 +34,7 @@ const Hero = () => {
                     </div>
 
                     {/* Bottom Text */}
-                    <div className="absolute bottom-6 sm:bottom-8 md:bottom-12 w-full flex flex-col sm:flex-row justify-between items-center gap-4 sm:gap-0">
+                    <div className="absolute mb-12 sm:bottom-16 md:mb-[150px] w-full flex flex-col sm:flex-row justify-between items-center gap-4 sm:gap-0">
                         <h1 className={`text-3xl sm:text-3xl md:text-3xl lg:text-5xl tracking-[0.1em] sm:tracking-[0.15em] md:tracking-[0.2em] font-light ${montserrat.className}`}>
                             TAILORED.TRANSFORMATIVE
                         </h1>

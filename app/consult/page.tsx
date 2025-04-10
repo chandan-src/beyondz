@@ -38,9 +38,8 @@ type CardData = {
 const AboutPage = () => {
     return (
         <main className="min-h-screen bg-black text-white">
-            <Header />
             <div className="min-h-screen bg-black text-white flex flex-col">
-                {/* Hero Section with Image and Title */}
+       
                 <div className="relative w-full h-screen  ">
                     {/* Main Image - Right side of the header */}
                     <div className="absolute top-0 right-0 p-10 overflow-hidden ">

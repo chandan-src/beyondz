@@ -7,7 +7,7 @@ import Image from 'next/image';
 const DigitalPage = () => {
     return (
         <main className="min-h-screen bg-black text-white">
-            <Header />
+        
             <div className="min-h-screen bg-black text-white flex flex-col">
                 {/* Hero Section with Image and Title */}
                 <div className="relative w-full h-screen  ">
