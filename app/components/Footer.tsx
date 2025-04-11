@@ -1,9 +1,15 @@
 import { ArrowUpRight } from "lucide-react";
 import Image from "next/image";
+import { Heebo, IBM_Plex_Mono } from 'next/font/google'
+const heebo = Heebo({
+  subsets: ['latin'],
+  weight: ['100', '300', '400', '500', '700', '900']
+})
+
 
 const Footer = () => {
   return (
-    <div className="bg-black text-white">
+    <div className="bg-black text-white ">
       <footer className="container mx-auto px-4 sm:px-6 sm:py-20 md:px-8 py-6 sm:py-8 relative overflow-hidden">
         {/* Background "Z" */}
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
@@ -11,7 +17,7 @@ const Footer = () => {
             <Image
               src="/images/zblack.png"
               alt="Z"
-              width={200}
+              width={300}
               height={400}
 
             />
@@ -25,18 +31,17 @@ const Footer = () => {
             {/* Logo */}
             <div className="rounded-lg p-3 sm:p-5 mt-6 sm:mt-10">
               <div className="flex flex-col">
-                <span className="text-cyan-400 text-xl sm:text-2xl font-bold tracking-wider">BEYOND<span className="text-white">Z</span></span>
-                <span className="text-xs text-cyan-400 tracking-wider">DEEP TECH LABS</span>
+                <Image src="/images/beyondzfoot.png" alt="Logo" width={200} height={100} />
               </div>
             </div>
 
             {/* Right Navigation */}
-            <div className="flex flex-col sm:flex-row space-y-6 sm:space-y-0 sm:space-x-8 md:space-x-12 mt-6 sm:mt-10 sm:mr-4 md:mr-8 lg:mr-16">
+            <div className={`flex flex-col space-y-6 mt-6 sm:mt-32 sm:mr-4 md:mr-60  ${heebo.className}`}>
               {/* Services */}
               <div>
-                <h3 className="text-blue-400 text-base sm:text-lg mb-3 sm:mb-4">Services</h3>
-                <ul className="space-y-2 text-xs sm:text-sm">
-                  <li className="text-cyan-400">About Us</li>
+                <h3 className="font-bold text-transparent bg-gradient-to-r from-[#193CC4] to-[#08FFFF] bg-clip-text min-h-[60px] flex items-center text-[20px] font-medium">Services</h3>
+                <ul className="space-y-2 text-xs sm:text-sm font-light">
+                  <li className="text-cyan-400 font-bold">About Us</li>
                   <li>Our Services</li>
                   <li>Case Studies</li>
                   <li>Blog/Feed/News</li>
@@ -46,8 +51,8 @@ const Footer = () => {
 
               {/* Social Media */}
               <div>
-                <h3 className="text-blue-400 text-base sm:text-lg mb-3 sm:mb-4">Social Media</h3>
-                <ul className="space-y-2 text-xs sm:text-sm">
+                <h3 className="text-blue-400 text-base sm:text-lg mb-3 sm:mb-4 font-medium font-bold text-transparent bg-gradient-to-r from-[#193CC4] to-[#08FFFF] bg-clip-text  flex items-center">Social Media</h3>
+                <ul className="space-y-2 text-xs sm:text-sm font-light">
                   <li className="flex items-center">
                     LinkedIn
                     <ArrowUpRight size={12} className="ml-2" />

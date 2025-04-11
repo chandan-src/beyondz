@@ -1,39 +1,41 @@
 import Image from 'next/image'
-import React from 'react'
+import React, { useRef } from 'react'
 import CustomButton from './ui/CustomButton'
-import { motion } from 'framer-motion'
+import { motion, useScroll, useTransform } from 'framer-motion'
+import Link from 'next/link'
+import { Heebo } from 'next/font/google'
+
+const heebo = Heebo({
+    subsets: ['latin'],
+    weight: ['100', '300', '400', '500', '700', '900']
+})
 
 const About = () => {
+    const containerRef = useRef(null);
+    const { scrollYProgress } = useScroll({
+        target: containerRef,
+        offset: ["start end", "end start"]
+    });
+
+    const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
+
     return (
-        <div className="min-h-screen bg-[#f5f5f5] relative px-4 sm:px-6 md:px-8 py-12 sm:py-16 md:py-24">
-            <div className="container mx-auto">
+        <div ref={containerRef} className={`min-h-screen bg-gradient-to-t from-[#C4C4C4] to-[#F5F5F5] relative px-4 sm:px-6 md:px-8 py-12 sm:py-16 md:py-24 ${heebo.className}`}>
+            <div className="container mx-auto px-10">
                 <div className="flex flex-col">
                     {/* Heading */}
                     <motion.h2
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true, amount: 0.3 }}
-                        transition={{ duration: 0.3, ease: "easeOut" }}
-                        className="text-gray-500 text-base sm:text-lg tracking-wider mb-4 sm:mb-6 md:mb-8"
+                        style={{ opacity }}
+                        className="font-bold sm:text-[40px] tracking-wider mb-4 sm:mb-6 md:mb-8 text-transparent bg-gradient-to-r from-[#808285] to-[#BDBDBD] bg-clip-text"
                     >/ ABOUT</motion.h2>
 
                     {/* First Paragraph */}
                     <motion.div
                         className="mb-8 sm:mb-12 md:mb-16"
-                        initial={{ opacity: 0 }}
-                        whileInView={{ opacity: 1 }}
-                        viewport={{ once: true, amount: 0.3 }}
-                        transition={{ duration: 0.4, ease: "easeOut" }}
+                        style={{ opacity }}
                     >
                         <motion.p
-                            className="text-base sm:text-lg leading-relaxed text-gray-700"
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true, amount: 0.3 }}
-                            transition={{
-                                duration: 0.4,
-                                staggerChildren: 0.08
-                            }}
+                            className="text-[32px] font-semibold text-[#666666] leading-relaxed"
                         >
                             {["In the history of business & commerce, there has been no game-changer like Artificial Intelligence.",
                                 "Most earlier transformative technologies like electricity, industrial machines and computers, needed capital investments that could not be afforded by many.",
@@ -42,9 +44,7 @@ const About = () => {
                                     <motion.span
                                         key={index}
                                         className="block"
-                                        initial={{ opacity: 0, y: 10 }}
-                                        whileInView={{ opacity: 1, y: 0 }}
-                                        viewport={{ once: true, amount: 0.3 }}
+                                        style={{ opacity }}
                                         transition={{
                                             duration: 0.3,
                                             delay: index * 0.15
@@ -59,13 +59,10 @@ const About = () => {
                     {/* Image section with text overlay and button */}
                     <div className="relative mb-8 sm:mb-12 md:mb-16">
                         {/* Image container */}
-                        <div className="relative h-[250px] sm:h-[300px] md:h-[400px] w-full overflow-hidden">
+                        <div className="relative h-[250px] sm:h-[300px] md:h-[500px] w-full overflow-hidden flex justify-center">
                             <motion.div
-                                initial={{ opacity: 0, scale: 1.1 }}
-                                whileInView={{ opacity: 1, scale: 1 }}
-                                viewport={{ once: true, amount: 0.3 }}
-                                transition={{ duration: 0.8, ease: [0.645, 0.045, 0.355, 1] }}
-                                className="relative w-full h-full"
+                                style={{ opacity }}
+                                className="relative w-[1200px] h-[500px] mx-auto"
                             >
                                 <Image
                                     src="/images/3d.png"
@@ -76,52 +73,37 @@ const About = () => {
                                 />
                                 <div className="absolute inset-0 flex items-center justify-center">
                                     <motion.h3
-                                        initial={{ opacity: 0, y: 20 }}
-                                        whileInView={{ opacity: 1, y: 0 }}
-                                        viewport={{ once: true, amount: 0.3 }}
-                                        transition={{ duration: 0.5, delay: 0.2 }}
-                                        className="text-2xl sm:text-3xl md:text-4xl font-bold text-white px-4 sm:px-6 py-1 sm:py-2 rounded-md backdrop-blur-sm bg-black/30"
+                                        style={{ opacity }}
+                                        className="flex justify-center"
                                     >
-                                        Beyondz
+                                        <Image src="/images/beyondz.png" alt="Beyondz" width={200} height={100} />
                                     </motion.h3>
                                 </div>
                             </motion.div>
                         </div>
 
-                        {/* Centered text overlay */}
-
-
                         {/* Right side button */}
                         <div className="absolute top-1/2 right-4 sm:right-8 md:right-12 lg:right-16 transform -translate-y-1/2 z-10">
-                            <CustomButton
+                            <Link
                                 href="/about"
-                                variant="secondary"
-                                size="sm"
-                                icon="arrowRight"
+                                className="inline-flex items-center justify-center w-[308px] h-[52px] bg-transparent border rounded-sm border-[black] text-black uppercase mb-20 ml-[-20]"
                             >
                                 More About Us
-                            </CustomButton>
+                                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                </svg>
+                            </Link>
                         </div>
                     </div>
                 </div>
 
                 {/* Second Paragraph */}
                 <motion.div
-                    className="mb-4 sm:mb-6 md:mb-8"
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    viewport={{ once: true, amount: 0.3 }}
-                    transition={{ duration: 0.4, ease: "easeOut" }}
+                    className="mb-8 sm:mb-12 md:mb-16"
+                    style={{ opacity }}
                 >
                     <motion.p
-                        className="text-base sm:text-lg leading-relaxed text-gray-700"
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true, amount: 0.3 }}
-                        transition={{
-                            duration: 0.4,
-                            staggerChildren: 0.08
-                        }}
+                        className="text-[32px] font-semibold text-[#666666] leading-relaxed"
                     >
                         {["We let each business decide the extent to which they want to know, engage with or use AI.",
                             "From consulting, to training, to targeted AI implementations to comprehensive AI first digital transformation,",
@@ -129,9 +111,7 @@ const About = () => {
                                 <motion.span
                                     key={index}
                                     className="block"
-                                    initial={{ opacity: 0, y: 10 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    viewport={{ once: true, amount: 0.3 }}
+                                    style={{ opacity }}
                                     transition={{
                                         duration: 0.3,
                                         delay: index * 0.15
@@ -142,10 +122,8 @@ const About = () => {
                             ))}
                     </motion.p>
                 </motion.div>
-
             </div>
         </div>
-
     )
 }
 

@@ -1,6 +1,14 @@
 import { ArrowRight } from "lucide-react";
-import Link from "next/link";
 import { motion } from "framer-motion";
+import { IBM_Plex_Mono } from 'next/font/google'
+import Link from 'next/link';
+import Image from "next/image";
+
+const ibmPlexMono = IBM_Plex_Mono({
+    subsets: ['latin'],
+    weight: ['400', '500'],
+})
+
 
 const CaseStudyCard = ({ title, subtitle, imageSrc, caseNumber, index }: { title: string, subtitle: string, imageSrc: string, caseNumber: string, index: number }) => {
   return (
@@ -27,7 +35,18 @@ const CaseStudyCard = ({ title, subtitle, imageSrc, caseNumber, index }: { title
         initial={{ opacity: 0 }}
         whileHover={{ opacity: 1 }}
       />
-      <div className="absolute top-3 left-3 text-xs text-gray-400">{caseNumber}</div>
+      <div className="absolute top-3 left-3 bg-black/70 rounded z-10 text-transparent bg-gradient-to-r from-[#193CC4] to-[#08FFFF] bg-clip-text flex flex-row justify-between w-full">
+        <motion.div
+          className="flex items-center justify-center bg-black/50 rounded-lg mb-20 text-4xl text-center"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.3, ease: "easeOut" }}
+        >
+          <h1 className="text-[10px] font-bold text-transparent bg-gradient-to-r from-[#193CC4] to-[#08FFFF] bg-clip-text flex items-center justify-center px-1">Future of AI</h1>
+        </motion.div>
+        <Image src="/images/zgroup.png" className="absolute  ml-80" alt="Beyond Z" width={40} height={5} />
+      </div>
       <div className="z-logo absolute top-3 right-3 text-[#00a2ff] font-bold">Z</div>
       <div className="h-full w-full">
         <motion.img
@@ -105,7 +124,7 @@ const Index = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-[#0d121e] text-white">
+    <div className="min-h-screen bg-[#1A1F25] text-white">
       {/* Case Studies Section */}
       <motion.div
         className="w-full max-w-7xl mx-auto px-4 py-16"
@@ -122,17 +141,15 @@ const Index = () => {
           transition={{ duration: 0.5, delay: 0.2 }}
         >
           {/* Centered Title */}
-          <div className="text-center mb-8">
-            <motion.h2
-              className="text-3xl font-bold bg-gradient-to-r from-[#003366] to-[#00a2ff] bg-clip-text text-transparent"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-            >
-              Case Studies
-            </motion.h2>
-          </div>
+          <motion.div
+        className="flex items-center justify-center mb-16 text-4xl w-full text-center"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{ duration: 0.3, ease: "easeOut" }}
+      >
+        <h1 className="text-[48px] font-bold text-transparent bg-gradient-to-r from-[#193CC4] to-[#08FFFF] bg-clip-text min-h-[60px] flex items-center justify-center">/ Case Studies</h1>
+      </motion.div>
 
           {/* Right-aligned Content */}
           <motion.div
@@ -142,7 +159,7 @@ const Index = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.4 }}
           >
-            <p className="text-gray-400 mb-6 text-sm leading-relaxed">
+            <p className={`text-gray-400 mb-6 text-sm leading-relaxed ${ibmPlexMono.className}`}>
               Our curated case studies showcase how AI can be transformational across industries and
               contexts. Browse through them, and if any use case resonates with your business, feel free to
               reach out—we'd be happy to offer more insights.
@@ -176,7 +193,7 @@ const Index = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.6 }}
         >
-          <Link href="/casestudy" className="explore-btn text-[#00a2ff] px-5 py-2 rounded flex items-center space-x-2 text-sm">
+          <Link href="/casestudy" className="uppercase mt-8 border-2 mb-20 text-[#08FFFF] px-14 py-6 w-[392px] h-[52px] flex items-center gap-2 text-sm bg-[#1A1F25] rounded-xl border-transparent [border-image:linear-gradient(to_right,#193CC4,#08FFFF)_1]">
             <span>EXPLORE OUR CASE STUDIES</span>
             <ArrowRight size={16} />
           </Link>

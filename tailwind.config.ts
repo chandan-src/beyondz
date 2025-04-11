@@ -10,6 +10,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      textGradient: {
+        'heading-gradient': 'linear-gradient(to right, #193CC4, #08FFFF)',
+      },
       colors: {
         cyan: {
           500: "#00ffff",
@@ -114,6 +117,9 @@ const config: Config = {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         glow: "glow 2s infinite",
+      },
+      fontFamily: {
+        valuxe: ["Valuxe", "sans-serif"],
       },
     },
   },

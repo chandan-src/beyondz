@@ -3,7 +3,12 @@ import { Button } from "@/components/ui/button";
 import { ArrowUpRight } from "lucide-react";
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-
+import { Heebo } from 'next/font/google'
+import Image from "next/image"
+const heebo = Heebo({
+  subsets: ['latin'],
+  weight: ['100', '300', '400', '500', '700', '900']
+})
 const Training = () => {
   return (
     <div className="min-h-screen bg-black text-white relative overflow-hidden">
@@ -18,33 +23,24 @@ const Training = () => {
         <div className="flex flex-col items-center justify-between flex-1">
           {/* Centered heading */}
           <motion.div
-            className="w-full text-center mb-8 sm:mb-12 md:mb-16"
+            className="flex items-center justify-center mb-16 text-4xl w-full text-center"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.3, ease: "easeOut" }}
           >
-            <motion.h2
-              className="text-3xl sm:text-4xl md:text-5xl font-bold text-blue-400 tracking-tight"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.4, delay: 0.2 }}
-            >
-              / Training
-            </motion.h2>
+            <h1 className="text-[48px] font-bold text-transparent bg-gradient-to-r from-[#193CC4] to-[#08FFFF] bg-clip-text min-h-[60px] flex items-center justify-center">/ Training</h1>
           </motion.div>
-
           {/* Content section */}
           <motion.div
-            className="w-full flex flex-col mt-12 sm:mt-16 md:mt-24 lg:mt-32 max-w-4xl mx-auto"
+            className="w-full flex justify-center items-center flex-col mt-12 sm:mt-16 md:mt-24 lg:mt-32  mx-auto"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.4, ease: "easeOut" }}
           >
             <motion.p
-              className="text-gray-300 text-base sm:text-lg md:text-xl mb-8 sm:mb-10 md:mb-12 leading-relaxed"
+              className="text-[32px] mt-20 w-[80%] bg-clip-text text-transparent bg-gradient-to-r from-[#808285] to-[#F5F5F5] font-bold mb-20"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
@@ -53,40 +49,33 @@ const Training = () => {
                 staggerChildren: 0.08
               }}
             >
-              {[
-                "The impact of AI stretches far beyond the people who will be working on it and using it actively.",
-                "For an inclusive world it is imperative that every person in every workplace is given some level of AI training.",
-                "But for each audience, the content might need to be tailored based on their context.",
-                "We offer a range of training services that help everyone, from business leaders, to lower-level employees be a part of the global AI revolution."
-              ].map((line, index) => (
-                <motion.span
-                  key={index}
-                  className="block mb-4"
-                  initial={{ opacity: 0, y: 10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.3 }}
-                  transition={{
-                    duration: 0.3,
-                    delay: index * 0.15
-                  }}
-                >
-                  {line}
-                </motion.span>
-              ))}
+
+              The impact of AI stretches far beyond the people who will be working on it and using it actively.
+              For an inclusive world it is imperative that every person in every workplace is given some level of AI training.
+              But for each audience, the content might need to be tailored based on their context.
+              We offer a range of training services that help everyone, from business leaders, to lower-level employees be a part of the global AI revolution.
+
             </motion.p>
 
             <motion.div
-              className="mt-6 sm:mt-8 flex justify-center sm:justify-end"
+              className="mt-6 sm:mt-8 flex justify-end w-full"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.4, delay: 0.6 }}
             >
-              <Link href="/training">
-                <Button className="bg-transparent hover:bg-blue-900/40 text-blue-400 border border-blue-400 rounded-sm px-4 sm:px-6 py-2 sm:py-3 text-xs sm:text-sm uppercase tracking-wider flex items-center group transition-all duration-300">
-                  Explore our training programs
-                  <ArrowUpRight size={14} className="ml-2 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-                </Button>
+              <Link href="/consult"
+                className="uppercase mt-8 border-2 mb-20 text-[#08FFFF] px-10 py-6 w-[392px] h-[52px] flex items-center gap-2 text-sm bg-[#1A1F25] rounded-xl border-transparent [border-image:linear-gradient(to_right,#193CC4,#08FFFF)_1] mr-32"
+              >
+                EXPLORE our consulting services
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  className="w-4 h-4 ml-1"
+                >
+                  <path fillRule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clipRule="evenodd" />
+                </svg>
               </Link>
             </motion.div>
           </motion.div>
@@ -94,29 +83,29 @@ const Training = () => {
 
         {/* Footer section */}
         <motion.div
-          className="mt-16 sm:mt-20 md:mt-24 flex flex-col md:flex-row items-center justify-center gap-6 sm:gap-8 md:gap-10 py-8 sm:py-10 border-t border-gray-800"
+          className="bg-[#161719] w-[70%] rounded-xl mx-auto mt-16 sm:mt-20 md:mt-24 flex flex-col md:flex-row items-center   p-8 sm:p-10 border-t border-gray-800"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.4, delay: 0.8 }}
+          transition={{ duration: 0.4, delay: 0.3 }}
         >
-          <motion.div
-            className="text-teal-400 font-bold text-2xl sm:text-3xl tracking-tight"
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.4, delay: 1 }}
-          >
-            GET<span className="text-white">AI</span>
-            <p className="text-xs font-normal text-teal-500/70 tracking-wider">FOUNDATION</p>
-          </motion.div>
+         
+            <Image
+              src="/images/getai.png"
+              alt="GETAI Foundation"
+              width={200}
+              height={200}
+              className="object-contain"
+              priority
+            />
+        
 
           <motion.div
-            className="md:ml-6 text-xs sm:text-sm text-gray-400 max-w-2xl text-center md:text-left"
+            className={`md:ml-10 text-base sm:text-lg md:text-xl md:text-left  ${heebo.className} text-transparent bg-gradient-to-r from-[#808285] to-[#F5F5F5] bg-clip-text`}
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.4, delay: 1.2 }}
+            transition={{ duration: 0.4, delay: 0.3 }}
           >
             Our passion for educating communities around the world in order to make AI
             and its benefits inclusive, goes well beyond our commercial interests. If you
