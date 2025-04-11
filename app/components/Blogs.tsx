@@ -2,6 +2,12 @@ import React, { useState } from "react";
 import { ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
+import { IBM_Plex_Mono } from "next/font/google";
+
+const ibmPlexMono = IBM_Plex_Mono({
+    subsets: ['latin'],
+    weight: ['400', '500'],
+})
 
 const Blogs = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -54,14 +60,13 @@ const Blogs = () => {
     >
       {/* Header */}
       <motion.div
-        className="flex items-center mb-16 text-4xl"
+        className="flex items-center mb-16 text-4xl w-full"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 0.3, ease: "easeOut" }}
       >
-        <div className="text-blue-500 mr-3">/</div>
-        <h1 className="text-blue-500 text-4xl font-medium">Blogs</h1>
+        <h1 className="text-[48px] font-bold text-transparent bg-gradient-to-r from-[#193CC4] to-[#08FFFF] bg-clip-text min-h-[60px] flex items-center">/ Blogs/NewsFeeds</h1>
       </motion.div>
 
       {/* Main Content */}
@@ -88,13 +93,13 @@ const Blogs = () => {
           </motion.div>
         </div>
         <motion.div
-          className="max-w-md text-sm text-gray-300"
+          className={`max-w-md text-sm text-gray-300 ${ibmPlexMono.className}`}
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.4, ease: "easeOut" }}
         >
-          A hub for all things Labs, including new projects, technology experiments, team news, and more.
+         Our Blogs and Newsfeeds section features thought-leading articles and global updates on how AI is transforming various industries along with insights into how Beyond Z views these advancements and contributes to the evolving landscape.
         </motion.div>
         <motion.div
           className="flex space-x-2"
@@ -155,42 +160,14 @@ const Blogs = () => {
           transition={{ duration: 0.5, delay: 0.3 }}
         >
           <div className="rounded-lg overflow-hidden bg-gradient-to-r from-gray-900 to-gray-800 h-[500px] relative">
-            <div className="p-8 absolute top-0 left-0 w-full">
-              <motion.h2
-                className="text-2xl font-medium mb-3"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.3 }}
-                transition={{ duration: 0.4, ease: "easeOut" }}
-              >
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit sed diam nonummy nibh euismod tincidunt
-              </motion.h2>
-              <motion.div
-                className="text-gray-400 text-sm mb-4"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.3 }}
-                transition={{ duration: 0.4, delay: 0.2, ease: "easeOut" }}
-              >
-                By Alis Berglun Kirmack
-              </motion.div>
-            </div>
-            <motion.div
-              className="absolute bottom-6 left-8 text-xs text-gray-400"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.4, delay: 0.3, ease: "easeOut" }}
-            >
-              Released on 12 / 03 / 25
-            </motion.div>
-            <div className="absolute right-0 bottom-0 w-2/3 h-3/4">
+            {/* Full background image */}
+            <div className="absolute inset-0 w-full h-full">
               <AnimatePresence custom={direction} initial={false}>
                 <motion.img
                   key={currentIndex}
                   src={blogImages[currentIndex]}
                   alt="Person working on tech"
-                  className="w-full h-full object-cover rounded-tl-lg absolute inset-0"
+                  className="w-full h-full object-cover absolute inset-0"
                   custom={direction}
                   variants={slideVariants}
                   initial="enter"
@@ -200,6 +177,32 @@ const Blogs = () => {
                 />
               </AnimatePresence>
             </div>
+            
+            {/* Gray overlay on the left side */}
+            <div className="absolute bg-[#1A1F25] rounded-xl w-1/3 ml-10 mt-10 h-[80%] z-10">
+              <div className="p-6">
+                <motion.h2
+                  className="text-2xl font-medium mb-3"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.3 }}
+                  transition={{ duration: 0.4, ease: "easeOut" }}
+                >
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit sed diam nonummy nibh euismod tincidunt
+                </motion.h2>
+              </div>
+            
+             
+            </div>
+            <motion.div
+              className="absolute bottom-6 left-8 text-xs text-gray-400 z-20"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.4, delay: 0.3, ease: "easeOut" }}
+            >
+              Released on 12 / 03 / 25
+            </motion.div>
           </div>
         </motion.div>
 
@@ -238,7 +241,7 @@ const Blogs = () => {
         viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 0.4, delay: 0.5, ease: "easeOut" }}
       >
-        <Link href="/blog" className="bg-blue-600 text-white text-sm rounded-full px-4 py-2 flex items-center hover:bg-blue-700 transition-colors">
+        <Link href="/blog" className={`bg-blue-600 text-white text-sm rounded-full px-4 py-2 flex items-center hover:bg-blue-700 transition-colors ${ibmPlexMono.className}`}>
           All Articles
           <ArrowRight size={16} className="ml-1" />
         </Link>

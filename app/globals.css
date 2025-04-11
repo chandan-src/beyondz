@@ -39,6 +39,15 @@ body {
   }
 }
 
+/* styles/globals.css */
+
+@font-face {
+  font-family: "Valuxe";
+  src: url("/fonts/Valuxe.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;

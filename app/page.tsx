@@ -13,16 +13,16 @@ import Footer from "./components/Footer";
 
 export default function Home() {
   return (
-    <main className="relative w-full">
+    <main className="absolute w-full">
       {/* Hero section with sticky positioning */}
-      <section className="sticky top-0 left-0 w-full h-screen bg-black z-0" id="hero">
-       
+      <section className="relative w-full bg-black z-4" id="hero">
+
         <Hero />
       </section>
 
       {/* Content section with proper spacing and reveal effect */}
-      <section className="relative bg-black z-10">
-        <div className="relative z-20">
+      <section className="sticky top-0 bg-black ">
+        <div className="relative ">
           <About />
           <Consult />
           <Digital />
