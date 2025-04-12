@@ -10,7 +10,7 @@ const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false)
 
     return (
-        <div className="relative top-0 w-full z-10 bg-black max-w-[100vw] ">
+        <div className="relative bg-black top-0 w-full z-20  max-w-[100vw] ">
             <div className="container mx-auto px-4 sm:px-6 md:px-10">
                 <div className="flex flex-col sm:flex-row items-center justify-between pt-2 sm:pt-3 md:pt-4">
                     {/* Left Box - Dark with Logo and Menu */}

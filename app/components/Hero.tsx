@@ -12,7 +12,7 @@ export default function Hero() {
     const bounceConfig = { stiffness: 100, damping: 20, mass: 0.8 };
 
     return (
-        <div className="bg-black text-white relative mb-32 overflow-hidden px-4 sm:px-6 md:px-1 h-[calc(100vh-200px)]">
+        <div className="bg-black text-white absolute top-0 mb-32 overflow-hidden px-4 sm:px-6 md:px-1 h-[calc(100vh-200px)]">
             {/* Background Z */}
             <motion.div
                 className="absolute top-0 left-0 right-0 flex justify-center pt-3 sm:pt-4 md:pt-5"

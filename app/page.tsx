@@ -16,7 +16,6 @@ export default function Home() {
 
       {/* Wrapper for all sections */}
       <div className="relative h-[300vh] w-screen overflow-hidden">
-
         {/* Black Section (scrolls initially) */}
         <div className="relative h-[calc(100vh-150px)] w-full bg-black z-10 flex items-center justify-center">
           <Hero />
@@ -35,9 +34,7 @@ export default function Home() {
           <Twoinone />
           <Footer />
         </div>
-
       </div>
-
     </div>
   );
 }
