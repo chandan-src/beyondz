@@ -1,3 +1,4 @@
+"use client"
 import Image from 'next/image'
 import React, { useRef } from 'react'
 import CustomButton from './ui/CustomButton'
@@ -17,7 +18,7 @@ const About = () => {
         offset: ["start end", "end start"]
     });
 
-    const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
+    const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 1]);
 
     return (
         <div ref={containerRef} className={`min-h-screen bg-gradient-to-t from-[#C4C4C4] to-[#F5F5F5] relative px-4 sm:px-6 md:px-8 py-12 sm:py-16 md:py-24 ${heebo.className}`}>

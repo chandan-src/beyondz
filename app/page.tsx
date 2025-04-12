@@ -1,5 +1,4 @@
-"use client";
-
+"use client"
 import Header from "./components/Header";
 import Hero from "./components/Hero";
 import About from "./components/About";
@@ -13,26 +12,32 @@ import Footer from "./components/Footer";
 
 export default function Home() {
   return (
-    <main className="absolute w-full">
-      {/* Hero section with sticky positioning */}
-      <section className="relative w-full bg-black z-4" id="hero">
+    <div>
 
-        <Hero />
-      </section>
+      {/* Wrapper for all sections */}
+      <div className="relative h-[300vh] w-screen overflow-hidden">
 
-      {/* Content section with proper spacing and reveal effect */}
-      <section className="sticky top-0 bg-black ">
-        <div className="relative ">
+        {/* Black Section (scrolls initially) */}
+        <div className="relative h-[calc(100vh-150px)] w-full bg-black z-10 flex items-center justify-center">
+          <Hero />
+        </div>
+
+        {/* Content Section (Fixed at the top, reveals after black section scrolls) */}
+        <div className="fixed top-0 left-0 w-full h-screen z-0 overflow-y-auto">
           <About />
           <Consult />
-          <Digital />
+          <div className="relative">
+            <Digital />
+          </div>
           <Training />
           <Casestudy />
           <Blogs />
           <Twoinone />
           <Footer />
         </div>
-      </section>
-    </main>
+
+      </div>
+
+    </div>
   );
 }

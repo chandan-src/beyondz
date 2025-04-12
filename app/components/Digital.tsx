@@ -67,7 +67,7 @@ const Digital = () => {
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, amount: 0.3 }}
-                    transition={{ duration: 0.3, ease: "easeOut" }}
+                    transition={{ duration: 0.6, ease: "easeOut" }}
                 >
                     <h1 className="text-[48px] font-bold text-transparent bg-gradient-to-r from-[#193CC4] to-[#08FFFF] bg-clip-text min-h-[60px] flex items-center justify-center">/ Digital Transformation</h1>
                 </motion.div>
@@ -91,8 +91,29 @@ const Digital = () => {
                     return (
                         <motion.div
                             key={`p_${i}`}
-                            className="cardContainer fixed top-0 left-0 w-full"
+                            className="cardContainer fixed top-0 left-0 w-full h-screen flex items-center justify-center"
                             style={{ scale }}
+                            transition={{
+                                duration: 0.8,
+                                ease: [0.25, 0.1, 0.25, 1.0],
+                                type: "spring",
+                                stiffness: 120,
+                                mass: 0.8,
+                            }}
+                            whileHover={{
+                                transition: {
+                                    type: "spring",
+                                    stiffness: 300,
+                                }
+                            }}
+                            animate={{
+                                transition: {
+                                    duration: 2.5,
+                                    repeat: Infinity,
+                                    repeatType: "reverse",
+                                    ease: "easeInOut"
+                                }
+                            }}
                         >
                             <div className="relative z-10 w-full">
                                 <div className="transition-all duration-300 relative mb-4 w-full overflow-hidden opacity-100 border-2 border-transparent [border-image:linear-gradient(to_right,#193CC4,#08FFFF)_1]">
