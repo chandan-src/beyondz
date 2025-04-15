@@ -43,8 +43,8 @@ const Twoinone = () => {
 
       {/* Image Section - Bottom Half */}
       <div className="w-full flex absolute mt-[200px] sm:mt-[200px] md:[150px] lg:[200px] justify-center items-center bg-white p-4 sm:p-6 md:p-8 overflow-hidden mt-16 sm:mt-20 md:mt-24 lg:mt-32">
-        <div className="mt-10 sm:mt-0 w-full h-[400px] sm:h-[400px] md:h-[500px] lg:h-[600px] flex items-center justify-center">
-          <div className="mt-20 relative w-full h-full flex items-center justify-center">
+        <div className="mt-32 sm:mt-0 w-full h-[400px] sm:h-[400px] md:h-[500px] lg:h-[600px] flex items-center justify-center">
+          <div className="mt-30 relative w-full h-full flex items-center justify-center">
             <Image
               src="/images/3d.png"
               alt="Neurology"

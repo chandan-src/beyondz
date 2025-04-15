@@ -83,7 +83,7 @@ export default function Hero() {
                         }}
                     >
                         <motion.h1
-                            className="text-4xl md:mt-10 text-center lg:text-left sm:text-3xl xl:text-5xl tracking-[0.1em] sm:tracking-[0.15em] md:tracking-[0.2em] leading-relaxed w-full sm:w-[85vw] font-valuxe bg-gradient-to-r from-[#77787B]/70 to-[#BDBDBD] text-transparent bg-clip-text py-2"
+                            className="text-3xl md:mt-10 text-center lg:text-left sm:text-3xl xl:text-5xl tracking-[0.1em] sm:tracking-[0.15em] md:tracking-[0.2em] leading-relaxed w-full sm:w-[85vw] font-valuxe bg-gradient-to-r from-[#77787B]/70 to-[#BDBDBD] text-transparent bg-clip-text py-2"
                             whileHover={{ scale: 1.02 }}
                             transition={{ type: "spring", stiffness: 300, damping: 10 }}
                         >

@@ -23,24 +23,7 @@ We offer a range of training services that help everyone, from business leaders,
 
   const words = paragraph.split(' ');
 
-  useEffect(() => {
-    if (paragraphRef.current) {
-      const words = paragraphRef.current.querySelectorAll('.word');
-      gsap.fromTo(words, {
-        opacity: 0
-      }, {
-        opacity: 1,
-        stagger: 0.1,
-        duration: 0.5,
-        ease: 'power2.out',
-        scrollTrigger: {
-          trigger: paragraphRef.current,
-          start: 'top 80%',
-          toggleActions: 'play none none reverse'
-        }
-      });
-    }
-  }, []);
+ 
 
   return (
     <div className="min-h-screen bg-black text-white relative overflow-hidden">
@@ -87,7 +70,7 @@ We offer a range of training services that help everyone, from business leaders,
               transition={{ duration: 0.4, delay: 0.6 }}
             >
               <Link href="/consult"
-                className="uppercase text-center lg:text-start lg:mt-0 mt-8 border-2 mb-20 text-[#08FFFF] px-10 py-6 w-[392px] h-[52px] flex items-center gap-2 text-sm bg-[#1A1F25] rounded-xl border-transparent [border-image:linear-gradient(to_right,#193CC4,#08FFFF)_1]"
+                className="uppercase text-center ml-2 md:ml-0 lg:text-start lg:mt-0 mt-8 border-2 mb-20 text-[#08FFFF] px-10 py-6 w-[392px] h-[52px] flex items-center gap-2 text-sm bg-[#1A1F25] rounded-xl border-transparent [border-image:linear-gradient(to_right,#193CC4,#08FFFF)_1]"
               >
                 EXPLORE our consulting services
                 <svg

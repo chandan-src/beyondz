@@ -91,7 +91,7 @@ const Footer = () => {
           </div>
         </footer>
       </div>
-      <div className="grid grid-cols-2 lg:hidden bg-black text-white">
+      <div className="grid grid-cols-2 lg:hidden mt-20 bg-black text-white">
         <div className="h-90 flex items-center justify-center ">
           <Image src="/images/zgroup.png" alt="Logo" width={100} height={100} className="bg-[#1A1F25] mt-10 object-contain p-4 rounded-lg" />
         </div>
@@ -137,7 +137,7 @@ const Footer = () => {
           <div className="border-t-2 border-dotted border-gray-800 my-4 sm:my-6"></div>
 
           {/* Footer Bottom */}
-          <div className={`flex justify-between items-center text-center w-full h-20 px-10 ${ibmPlexMono.className} font-light`}>
+          <div className={`flex mb-10 justify-between items-center text-center w-full h-20 px-10 ${ibmPlexMono.className} font-light`}>
             <p className="text-xs text-gray-500 mr-2">©2024 Beyond Z LLC</p>
             <div className="flex items-center mx-4">
               <p className="text-xs text-gray-500 mr-2">EMAIL US ON:</p>

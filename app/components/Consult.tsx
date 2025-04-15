@@ -17,8 +17,8 @@ const Consult = () => {
 
   const lines = [
     "We have consulting packages for companies at all stages in their AI adoption journey.",
-    "This includes companies who are merely trying to understand AI and their options through our ReadinessReview.AI service,",
-    "as well as companies who would like guidance on how to transform themselves and be AI first."
+    "This includes companies who are merely trying to understand AI and their options through our ReadinessReview.",
+    "AI service, as well as companies who would like guidance on how to transform themselves and be AI first."
   ];
 
   return (
@@ -68,7 +68,7 @@ const Consult = () => {
             >
               <Link
                 href="/consult"
-                className="uppercase mt-8 border-2 mb-20 text-[#08FFFF] px-10 py-6 w-[392px] h-[52px] flex items-center gap-2 text-sm bg-[#1A1F25] rounded-xl border-transparent [border-image:linear-gradient(to_right,#193CC4,#08FFFF)_1]"
+                className="uppercase mt-8 border-2 mb-20 text-[#08FFFF] px-10 py-6 w-[380px] md:w-[392px] h-[52px] flex items-center gap-2 text-sm bg-[#1A1F25] rounded-xl border-transparent [border-image:linear-gradient(to_right,#193CC4,#08FFFF)_1]"
               >
                 EXPLORE our consulting services
                 <svg
