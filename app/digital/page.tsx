@@ -1,22 +1,36 @@
-import React from 'react';
+"use client"
+import React, { useRef } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import Twoinone from '../components/Twoinone';
 import Image from 'next/image';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import LocomotiveScroll from '@/components/L';
 
 const DigitalPage = () => {
+
+    const contentRef = useRef<HTMLDivElement | null>(null);
+    const { scrollYProgress } = useScroll({
+        target: contentRef,
+        offset: ["start 70%", "end 60%"]
+    });
+
+    const scale = useTransform(scrollYProgress, [0, 1], [0.7, 1]);
+    const opacity = useTransform(scrollYProgress, [0, 1], [0.5, 1]);
+
     return (
-        <main className="min-h-screen bg-black text-white">
-        
+        <motion.div className="min-h-screen bg-black text-white">
+            <LocomotiveScroll />
             <div className="min-h-screen bg-black text-white flex flex-col">
                 {/* Hero Section with Image and Title */}
                 <div className="relative w-full h-screen  ">
                     {/* Main Image - Right side of the header */}
                     <div className="absolute top-0 right-0 p-10 overflow-hidden ">
-                        <Image
+                        <motion.img
                             src="https://images.unsplash.com/photo-1575936123452-b67c3203c357?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aW1hZ2V8ZW58MHx8MHx8fDA%3D"
                             alt="Hand touching technology"
                             width={600}
+
                             height={200}
                             className=" object-cover"
                         />
@@ -40,7 +54,7 @@ const DigitalPage = () => {
 
 
             </div>
-            <div className="min-h-screen bg-black text-white flex flex-col pt-20 py-8 max-w-4xl mx-auto ">
+            <motion.div className="min-h-screen bg-black text-white flex flex-col pt-20 py-8 max-w-4xl mx-auto ">
                 {/* Header */}
                 <div className="mb-10">
                     <div className="text-xs text-gray-500 mb-2">DT1/001</div>
@@ -48,7 +62,7 @@ const DigitalPage = () => {
                 </div>
 
                 {/* Card 1 - Agentic AI Implementation */}
-                <div className="border border-blue-900/50 rounded-lg p-6 mb-6 relative bg-black/80">
+                <motion.div style={{ scale }} ref={contentRef} className="border border-blue-900/50 rounded-lg p-6 mb-6 relative bg-black/80">
                     <div className="flex justify-between">
                         <div className="max-w-lg">
                             <h2 className="text-blue-400 font-medium mb-3">a) Agentic AI Implementation</h2>
@@ -77,8 +91,30 @@ const DigitalPage = () => {
                             </div>
                         </div>
                     </div>
+                </motion.div>
+                <div ref={contentRef} className="flex flex-wrap">
+                    {[
+                        "success", "coaches,", "so", "manam", "edhina", "institute", "loo", "cherithey", "once", "payment", "chesaka", "nuvvu", "em", "chestunnav", "neerchukuntunnava", "ledha", "ani", "patinchukoru…", "kani", "ikkada", "ala", "kaadhu", "they", "are", "providing", "success", "coaches.", "Veelu", "mee", "course", "starting", "nundi", "ending", "varaku", "meethone", "untu", "meeku", "ee", "problem", "vachina", "support", "ivvadaniki", "ready", "gaa", "untaaru…",
+                        "Anthey", "kadhu….", "Ikkada", "mega", "drives", "jaruguthu", "untay", "every", "month", "100+", "companies", "Nxtwave", "students", "nii", "hire", "chesukodaniki", "vasthunnay,", "which", "is", "not", "an", "simple", "thing(showing", "testimonials", "from", "portal", "itself).", "Idi", "continuous", "ga", "jarugutune", "untundi.", "Just", "manam", "nerchukuni,", "ready", "ga", "undali", "anthe.",
+                        "And", "placement", "preparation", "loo", "they", "are", "providing", "AI", "build", "mock", "interviews", ",", "where", "you", "can", "practice", "and", "build", "confidence", "inka", "ila", "chala", "ante", "chala", "provide", "chesthunnaru…", "Ive", "kakunda", "konni", "extra", "courses", "kuda", "unnai.", "Bayata", "ivi", "cheyyalante", "min.", "1Lakh", "easy", "ga", "avutundi.", "Alantidi", "course", "tho", "paate,", "extra", "amount", "em", "teeskokunda", "offer", "chestunaru.",
+                        "Okavela", "nenu", "cheppedi", "miku,", "nijama,", "kaada", "ani", "doubt", "unte,", "ee", "link", "description", "lo", "pedatanu.", "Mire", "try", "chesi", "oka", "manchi", "decision", "teeskondi…."
+                    ].map((word, index) => (
+                        <motion.span 
+                            key={index}
+                            className="mr-1 text-gray-300 text-md"
+                            initial={{ color: "black", opacity: 0.4, y: 10 }}
+                            whileInView={{ color: "white", opacity: 1, y: 0 }}
+                            viewport={{ once: false, amount: 0.8 }}
+                            transition={{ 
+                                duration: 0.5, 
+                                delay: 0.1,
+                                ease: "easeOut" 
+                            }}
+                        >
+                            {word}
+                        </motion.span>
+                    ))}
                 </div>
-
                 {/* Card 2 - Predictive Analytics */}
                 <div className="border border-blue-900/50 rounded-lg p-6 mb-6 relative bg-black/80">
                     <div className="flex justify-between">
@@ -94,7 +130,9 @@ const DigitalPage = () => {
                         </div>
                         <div className="bg-gray-800/90 w-32 h-32 rounded-lg flex items-center justify-center">
                             <div className="w-20 h-20">
-                                <svg viewBox="0 0 100 100" className="w-full h-full">
+                                <motion.svg
+                                    style={{ scale }}
+                                    viewBox="0 0 100 100" className="w-full h-full">
                                     <path
                                         d="M10,70 Q25,40 40,60 Q55,80 70,50 Q85,20 95,40"
                                         fill="none"
@@ -102,7 +140,7 @@ const DigitalPage = () => {
                                         strokeWidth="2"
                                     />
                                     <circle cx="95" cy="40" r="5" fill="none" stroke="#0ea5e9" strokeWidth="2" />
-                                </svg>
+                                </motion.svg>
                             </div>
                         </div>
                     </div>
@@ -220,11 +258,11 @@ const DigitalPage = () => {
                         </div>
                     </div>
                 </div>
-            </div>
+            </motion.div>
 
             <Twoinone />
             <Footer />
-        </main>
+        </motion.div>
     );
 };
 

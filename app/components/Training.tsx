@@ -41,7 +41,7 @@ We offer a range of training services that help everyone, from business leaders,
             className="flex items-center justify-end md:justify-center mb-16 text-4xl w-full text-right md:text-center pr-8 md:pr-0"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
+            viewport={{ once: false, amount: 0.3 }}
             transition={{ duration: 0.3, ease: "easeOut" }}
           >
             <h1 className="text-heading font-bold text-transparent bg-gradient-to-r from-[#193CC4] to-[#08FFFF] bg-clip-text min-h-[60px] flex items-center">/ Training</h1>

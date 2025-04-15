@@ -10,8 +10,13 @@ import Twoinone from "./components/Twoinone";
 import Footer from "./components/Footer";
 import { useEffect, useRef } from "react";
 import LocomotiveScroll from "@/components/L";
+import { useScroll, useTransform } from "framer-motion";
+import { motion } from 'framer-motion';
+
 export default function Home() {
   const contentRef = useRef<HTMLDivElement | null>(null);
+
+
   useEffect(() => {
     const handleScroll = () => {
       const heroHeight = window.innerHeight;
@@ -35,14 +40,17 @@ export default function Home() {
       <div className="relative h-[300vh] w-screen overflow-hidden">
         {/* Black Section (scrolls initially) */}
         <div className="relative w-full bg-black z-10 flex items-center justify-center">
-
           <Hero />
         </div>
 
-        <div ref={contentRef} className="fixed top-0 left-0 w-full h-screen z-0">
+        <motion.div
+        
+        ref={contentRef} className="fixed top-0 left-0 w-full h-screen z-0">
 
           <About />
+
           <Consult />
+
           <div className="relative">
             <Digital />
           </div>
@@ -51,7 +59,7 @@ export default function Home() {
           <Blogs />
           <Twoinone />
           <Footer />
-        </div>
+        </motion.div>
       </div>
     </div>
   );

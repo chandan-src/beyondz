@@ -21,7 +21,7 @@ const About = () => {
 
 
     return (
-        <div  className={`min-h-screen bg-gradient-to-t from-[#C4C4C4] to-[#F5F5F5] relative px-4 sm:px-6 md:px-8 py-12 sm:py-16 md:py-24 ${heebo.className}`}>
+        <div className={`min-h-screen bg-gradient-to-t from-[#C4C4C4] to-[#F5F5F5] relative px-4 sm:px-6 md:px-8 py-12 sm:py-16 md:py-24 ${heebo.className}`}>
             <div className="container mx-auto px-10">
                 <div className="flex flex-col">
                     {/* Heading */}
@@ -33,15 +33,15 @@ const About = () => {
                     {/* First Paragraph */}
                     <motion.div
                         className="mb-8 sm:mb-12 md:mb-16"
-                      
+
                     >
                         <motion.p
                             className="text-xl sm:text-2xl md:text-[32px] font-semibold text-[#666666] leading-[18px] md:leading-relaxed line-height-[18px] font-mixed"
                         >
-                           In the history of business & commerce, there has been no game-changer like Artificial Intelligence.
-                                "Most earlier transformative technologies like electricity, industrial machines and computers, needed capital investments that could not be afforded by many.
-                                But AI can be a leveler. It can tip the scales in favor of the ones who decide to embrace it.
-                                We enable this revolution by making AI accessible and inclusive
+                            In the history of business & commerce, there has been no game-changer like Artificial Intelligence.
+                            "Most earlier transformative technologies like electricity, industrial machines and computers, needed capital investments that could not be afforded by many.
+                            But AI can be a leveler. It can tip the scales in favor of the ones who decide to embrace it.
+                            We enable this revolution by making AI accessible and inclusive
                         </motion.p>
                     </motion.div>
 
@@ -50,7 +50,7 @@ const About = () => {
                         {/* Image container */}
                         <div className="relative  w-full overflow-hidden flex justify-center">
                             <motion.div
-                                
+
                                 className="relative w-[60%] sm:w-[50%] md:w-[40%] lg:w-[35%] mx-auto"
                             >
                                 <Image
@@ -62,10 +62,10 @@ const About = () => {
                                 />
                                 <div className="absolute inset-0 flex items-center justify-center">
                                     <motion.h3
-                                     
+
                                         className="flex justify-center"
                                     >
-                                        <Image src="/images/beyondz.png" alt="Beyondz" width={120} height={120} />
+                                        <Image src="/images/ztop.png" alt="Beyondz" width={120} height={120} />
                                     </motion.h3>
                                 </div>
                             </motion.div>
@@ -89,15 +89,15 @@ const About = () => {
                 {/* Second Paragraph */}
                 <motion.div
                     className=" mb-8 sm:mb-12 md:mb-16"
-                  
+
                 >
                     <motion.p
                         className="text-xl sm:text-2xl md:text-[32px]  font-semibold text-[#666666] leading-[18px] md:leading-relaxed line-height-[18px]"
                     >
-                       We let each business decide the extent to which they want to know, engage with or use AI.
-                            From consulting, to training, to targeted AI implementations to comprehensive AI first digital transformation,
-                            we offer bespoke solutions that allow everyone to be a part of the AI revolution.
-                               
+                        We let each business decide the extent to which they want to know, engage with or use AI.
+                        From consulting, to training, to targeted AI implementations to comprehensive AI first digital transformation,
+                        we offer bespoke solutions that allow everyone to be a part of the AI revolution.
+
                     </motion.p>
                 </motion.div>
             </div>

@@ -66,26 +66,32 @@ const Digital = () => {
                     className="flex items-center justify-center mb-16 text-4xl w-full text-center"
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, amount: 0.3 }}
+                    viewport={{ once: false, amount: 0.3 }}
                     transition={{ duration: 0.6, ease: "easeOut" }}
                 >
                     <h1 className="text-heading font-bold text-transparent bg-gradient-to-r from-[#193CC4] to-[#08FFFF] bg-clip-text min-h-[60px] flex flex-col md:flex-row items-center justify-center">
-                    <span className="hidden md:block">/ Digital Transformation</span>
+                        <span className="hidden md:block">/ Digital Transformation</span>
                         <span className="md:hidden block">/ Digital</span>
                         <span className="md:hidden block ml-36">Transformation</span>
                     </h1>
-                   
+
                 </motion.div>
 
                 {/* Content directly below heading */}
                 <div className="flex justify-end">
-                    <p className={`text-gray-400 mb-20 md:mb-0 p-10 md:p-2 max-w-full lg:max-w-3xl ml-auto md:mr-60 ${ibmPlexMono.className}`}>
+                    <motion.p 
+                        className={`text-gray-400 mb-20 md:mb-0 p-10 md:p-2 max-w-full lg:max-w-3xl ml-auto md:mr-60 ${ibmPlexMono.className}`}
+                        initial={{ opacity: 0, x: -50 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: false, amount: 0.3 }}
+                        transition={{ duration: 0.8, ease: "easeOut" }}
+                    >
                         Our Digital Transformation Solutions are where we go beyond consulting and training,
                         and actually get down to implementing transformational projects that help clients
                         leverage a range of cutting-edge technologies spanning natural language processing,
                         predictive analytics, AgenticAI, and more to comprehensively transform the way they
                         do business.
-                    </p>
+                    </motion.p>
                 </div>
             </div>
             <div className="relative">
