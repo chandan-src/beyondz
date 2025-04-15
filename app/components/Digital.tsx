@@ -7,7 +7,7 @@ import './page.scss';
 import { Heebo } from 'next/font/google'
 import { IBM_Plex_Mono } from 'next/font/google'
 import Link from 'next/link';
-
+import "../globals.css";
 const ibmPlexMono = IBM_Plex_Mono({
     subsets: ['latin'],
     weight: ['400', '500'],
@@ -69,12 +69,17 @@ const Digital = () => {
                     viewport={{ once: true, amount: 0.3 }}
                     transition={{ duration: 0.6, ease: "easeOut" }}
                 >
-                    <h1 className="text-[48px] font-bold text-transparent bg-gradient-to-r from-[#193CC4] to-[#08FFFF] bg-clip-text min-h-[60px] flex items-center justify-center">/ Digital Transformation</h1>
+                    <h1 className="text-heading font-bold text-transparent bg-gradient-to-r from-[#193CC4] to-[#08FFFF] bg-clip-text min-h-[60px] flex flex-col md:flex-row items-center justify-center">
+                    <span className="hidden md:block">/ Digital Transformation</span>
+                        <span className="md:hidden block">/ Digital</span>
+                        <span className="md:hidden block ml-36">Transformation</span>
+                    </h1>
+                   
                 </motion.div>
 
                 {/* Content directly below heading */}
                 <div className="flex justify-end">
-                    <p className={`text-gray-400 max-w-3xl ml-auto mr-60 ${ibmPlexMono.className}`}>
+                    <p className={`text-gray-400 mb-20 md:mb-0 p-10 md:p-2 max-w-full lg:max-w-3xl ml-auto md:mr-60 ${ibmPlexMono.className}`}>
                         Our Digital Transformation Solutions are where we go beyond consulting and training,
                         and actually get down to implementing transformational projects that help clients
                         leverage a range of cutting-edge technologies spanning natural language processing,
@@ -118,28 +123,30 @@ const Digital = () => {
                             <div className="relative z-10 w-full">
                                 <div className="transition-all duration-300 relative mb-4 w-full overflow-hidden opacity-100 border-2 border-transparent [border-image:linear-gradient(to_right,#193CC4,#08FFFF)_1]">
                                     <div className="bg-black rounded-xl p-6 md:p-4 flex flex-col min-h-[160px]">
-                                        <div className="flex items-center mb-1 md:mb-2 px-3">
-                                            <div className={`text-[30px] font-bold p-3 ${heebo.className} text-black bg-gradient-to-r mt-10 ml-20 from-[#193CC4] to-[#08FFFF] rounded-md`}>
+                                        <div className="flex items-center text-center md:text-start  mb-1 md:mb-2 px-3">
+                                            <div className={`text-[20px]  md:text-[30px] font-bold p-3 ${heebo.className} text-black bg-gradient-to-r mt-10 mx-4 md:ml-20 w-[calc(100%-2rem)] md:w-auto from-[#193CC4] to-[#08FFFF] rounded-md`}>
                                                 <span>{project.title}</span>
                                             </div>
                                         </div>
 
-                                        <div className="flex flex-col md:flex-row justify-between items-start md:items-center mt-4">
-                                            <div className="max-w-md pr-6 mx-4 ml-32">
+                                        <div className="flex flex-col items-center justify-center lg:text-start lg:flex-row justify-between items-start md:items-center md:mt-0 mt-10">
+                                            <div className="w-full md:max-w-md pr-6 mx-4 md:ml-32 px-4 md:px-0">
                                                 <p className="text-gray-300 mb-4">{project.description}</p>
-                                                <Link
-                                                    href="/about"
-                                                    className="inline-flex items-center justify-center ml-32 w-[308px] h-[42px] bg-[#1A1F25] text-[#ADADAD] border rounded-sm border-[black] uppercase mt-10"
-                                                >
-                                                    See Our Solutions
-                                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                                                    </svg>
-                                                </Link>
+                                                <div className="flex justify-end w-full">
+                                                    <Link
+                                                        href="/about"
+                                                        className={`inline-flex items-center justify-center w-[308px] h-[42px] bg-[#1A1F25] text-[#ADADAD] border rounded-sm border-[black] uppercase mt-6 md:mt-10 ${ibmPlexMono.className} font-light`}
+                                                    >
+                                                        See Our Solutions
+                                                        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                                        </svg>
+                                                    </Link>
+                                                </div>
                                             </div>
 
-                                            <div className="flex justify-center items-center md:ml-auto">
-                                                <div className="flex items-center justify-center flex-col bg-[#1A1F25] rounded-md mr-60 mb-16 w-[330px] h-[330px]">
+                                            <div className="flex justify-center items-center w-full md:ml-auto mt-8 md:mt-10">
+                                                <div className="flex items-center justify-center flex-col mx-auto md:ml-30 mb-6 md:mb-36 md:mr-60 bg-[#1A1F25] rounded-md w-[280px] h-[280px] md:w-[330px] md:h-[330px]">
                                                     <Image
                                                         src={project.link}
                                                         alt={project.title}

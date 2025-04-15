@@ -37,17 +37,18 @@ const CaseStudyCard = ({ title, subtitle, imageSrc, caseNumber, index }: { title
       />
       <div className="absolute top-3 left-3 bg-black/70 rounded z-10 text-transparent bg-gradient-to-r from-[#193CC4] to-[#08FFFF] bg-clip-text flex flex-row justify-between w-full">
         <motion.div
-          className="flex items-center justify-center bg-black/50 rounded-lg mb-20 text-4xl text-center"
+          className="flex flex-col items-start justify-start rounded-lg bg-black/10"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.3, ease: "easeOut" }}
         >
-          <h1 className="text-[10px] font-bold text-transparent bg-gradient-to-r from-[#193CC4] to-[#08FFFF] bg-clip-text flex items-center justify-center px-1">Future of AI</h1>
+          <h1 className="text-[18px]  font-bold text-transparent bg-gradient-to-r from-[#08FFFF] to-[#193CC4] bg-clip-text px-1">{title}</h1>
+          <h1 className="text-[14px] font-bold text-transparent bg-gradient-to-r from-[#08FFFF] to-[#193CC4] bg-clip-text px-1 mt-1">{subtitle}</h1>
         </motion.div>
-        <Image src="/images/zgroup.png" className="absolute  ml-80" alt="Beyond Z" width={40} height={5} />
+        <Image src="/images/zgroup.png" className="absolute ml-80" alt="Beyond Z" width={40} height={5} />
       </div>
-      <div className="z-logo absolute top-3 right-3 text-[#00a2ff] font-bold">Z</div>
+    
       <div className="h-full w-full">
         <motion.img
           src={imageSrc}
@@ -142,13 +143,13 @@ const Index = () => {
         >
           {/* Centered Title */}
           <motion.div
-        className="flex items-center justify-center mb-16 text-4xl w-full text-center"
+        className="flex items-center  justify-end md:justify-center mb-16 text-4xl w-full text-center"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 0.3, ease: "easeOut" }}
       >
-        <h1 className="text-[48px] font-bold text-transparent bg-gradient-to-r from-[#193CC4] to-[#08FFFF] bg-clip-text min-h-[60px] flex items-center justify-center">/ Case Studies</h1>
+        <h1 className="text-heading mr-6 font-bold text-transparent bg-gradient-to-r from-[#193CC4] to-[#08FFFF] bg-clip-text min-h-[60px] flex items-center justify-center">/ Case Studies</h1>
       </motion.div>
 
           {/* Right-aligned Content */}
@@ -172,7 +173,7 @@ const Index = () => {
         </motion.div>
 
         {/* Grid of Case Studies */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mb-12">
+        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-5 mb-12">
           {caseStudies.map((study, index) => (
             <CaseStudyCard
               key={study.id}
@@ -186,8 +187,8 @@ const Index = () => {
         </div>
 
         {/* Explore Button */}
-        <motion.div
-          className="flex justify-end"
+        <motion.div 
+          className="flex justify-center md:justify-end"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}

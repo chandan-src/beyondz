@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { Heebo } from 'next/font/google'
 import Image from "next/image"
+import "../globals.css";
 const heebo = Heebo({
   subsets: ['latin'],
   weight: ['100', '300', '400', '500', '700', '900']
@@ -23,24 +24,24 @@ const Training = () => {
         <div className="flex flex-col items-center justify-between flex-1">
           {/* Centered heading */}
           <motion.div
-            className="flex items-center justify-center mb-16 text-4xl w-full text-center"
+            className="flex items-center justify-end md:justify-center mb-16 text-4xl w-full text-right md:text-center pr-8 md:pr-0"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.3, ease: "easeOut" }}
           >
-            <h1 className="text-[48px] font-bold text-transparent bg-gradient-to-r from-[#193CC4] to-[#08FFFF] bg-clip-text min-h-[60px] flex items-center justify-center">/ Training</h1>
+            <h1 className="text-heading font-bold text-transparent bg-gradient-to-r from-[#193CC4] to-[#08FFFF] bg-clip-text min-h-[60px] flex items-center">/ Training</h1>
           </motion.div>
           {/* Content section */}
           <motion.div
-            className="w-full flex justify-center items-center flex-col mt-12 sm:mt-16 md:mt-24 lg:mt-32  mx-auto"
+            className="w-full flex justify-end items-end flex-col mt-12 sm:mt-16 md:mt-24 lg:mt-32 mx-auto"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.4, ease: "easeOut" }}
           >
             <motion.p
-              className="text-[32px] mt-20 w-[80%] bg-clip-text text-transparent bg-gradient-to-r from-[#808285] to-[#F5F5F5] font-bold mb-20"
+              className="text-para mt-20 w-[80%] mx-auto md:mx-0 md:w-[80%] bg-clip-text text-transparent bg-gradient-to-r from-[#808285] to-[#F5F5F5] font-bold mb-20"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
@@ -58,14 +59,14 @@ const Training = () => {
             </motion.p>
 
             <motion.div
-              className="mt-6 sm:mt-8 flex justify-end w-full"
+              className="mt-6 sm:mt-8 flex justify-end w-full pr-8 md:pr-32"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.4, delay: 0.6 }}
             >
               <Link href="/consult"
-                className="uppercase mt-8 border-2 mb-20 text-[#08FFFF] px-10 py-6 w-[392px] h-[52px] flex items-center gap-2 text-sm bg-[#1A1F25] rounded-xl border-transparent [border-image:linear-gradient(to_right,#193CC4,#08FFFF)_1] mr-32"
+                className="uppercase text-center lg:text-start lg:mt-0 mt-8 border-2 mb-20 text-[#08FFFF] px-10 py-6 w-[392px] h-[52px] flex items-center gap-2 text-sm bg-[#1A1F25] rounded-xl border-transparent [border-image:linear-gradient(to_right,#193CC4,#08FFFF)_1]"
               >
                 EXPLORE our consulting services
                 <svg
@@ -83,7 +84,7 @@ const Training = () => {
 
         {/* Footer section */}
         <motion.div
-          className="bg-[#161719] w-[70%] rounded-xl mx-auto mt-16 sm:mt-20 md:mt-24 flex flex-col md:flex-row items-center   p-8 sm:p-10 border-t border-gray-800"
+          className="bg-[#161719] w-[90%] md:w-[70%] rounded-xl mx-auto mt-16 sm:mt-20 md:mt-24 flex flex-col lg:flex-row  gap-10  p-8 sm:p-10 border-t border-gray-800"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
@@ -93,8 +94,8 @@ const Training = () => {
             <Image
               src="/images/getai.png"
               alt="GETAI Foundation"
-              width={200}
-              height={200}
+              width={130}
+              height={100}
               className="object-contain"
               priority
             />

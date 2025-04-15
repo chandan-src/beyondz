@@ -1,4 +1,4 @@
-import type { Config } from "tailwindcss"
+import type { Config } from "tailwindcss";
 
 const config: Config = {
   darkMode: ["class"],
@@ -11,7 +11,7 @@ const config: Config = {
   theme: {
     extend: {
       textGradient: {
-        'heading-gradient': 'linear-gradient(to right, #193CC4, #08FFFF)',
+        "heading-gradient": "linear-gradient(to right, #193CC4, #08FFFF)",
       },
       colors: {
         cyan: {
@@ -124,6 +124,5 @@ const config: Config = {
     },
   },
   plugins: [],
-}
-export default config
-
+};
+export default config;

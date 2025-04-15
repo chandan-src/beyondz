@@ -1,5 +1,5 @@
 "use client"
-import Header from "./components/Header";
+
 import Hero from "./components/Hero";
 import About from "./components/About";
 import Consult from "./components/Consult";
@@ -17,11 +17,11 @@ export default function Home() {
       {/* Wrapper for all sections */}
       <div className="relative h-[300vh] w-screen overflow-hidden">
         {/* Black Section (scrolls initially) */}
-        <div className="relative h-[calc(100vh-150px)] w-full bg-black z-10 flex items-center justify-center">
+        <div className="relative  w-full bg-black z-10 flex items-center justify-center">
           <Hero />
         </div>
 
-        {/* Content Section (Fixed at the top, reveals after black section scrolls) */}
+
         <div className="fixed top-0 left-0 w-full h-screen z-0 overflow-y-auto">
           <About />
           <Consult />

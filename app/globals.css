@@ -12,7 +12,18 @@
   -ms-overflow-style: none;
   /* IE and Edge */
   scrollbar-width: none;
+
   /* Firefox */
+  * {
+    /* outline: 1px solid red; */
+  }
+}
+
+.text-heading {
+  @apply text-3xl sm:text-4xl md:text-[48px];
+}
+.text-para{
+  @apply text-xl sm:text-2xl md:text-[32px];
 }
 
 @layer utilities {
@@ -26,7 +37,7 @@
 }
 
 html {
-  scroll-behavior: smooth;
+  /* scroll-behavior: smooth; */
 }
 
 :root {
@@ -52,12 +63,11 @@ body {
 /* styles/globals.css */
 
 @font-face {
-  font-family: 'Valuxe';
-  src: url('/fonts/Valuxe.ttf') format('truetype');
+  font-family: "Valuxe";
+  src: url("/fonts/Valuxe.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
-
 
 @layer base {
   :root {
@@ -234,5 +244,110 @@ h6 {
 
   100% {
     box-shadow: 0 0 5px rgba(0, 102, 255, 0.3);
+  }
+}
+
+@media (max-width: 700px) {
+  .aboutspline>div>canvas {
+    position: absolute;
+    /* min-height: 80vh; */
+  }
+}
+
+.blob {
+  position: fixed;
+  right: -30%;
+  top: -60%;
+  opacity: 0.5;
+  width: 1000px;
+  aspect-ratio: 1/1;
+  animation: animate 10s cubic-bezier(0.68, -0.55, 0.27, 1.55) infinite alternate forwards;
+  /* filter: blur(50px); */
+  z-index: -1;
+  background: linear-gradient(47deg, #0066ff, black, #0066ff, black);
+
+  /*  Optional  */
+  /*   box-shadow: inset 50px 50px 17px 0px #ff588b,
+    inset 100px 100px 17px 0px #66319f; */
+}
+
+.blob2 {
+  position: fixed;
+  left: -10%;
+  bottom: 0%;
+  opacity: 0.5;
+  width: 400px;
+  aspect-ratio: 1/1;
+  animation: animate 10s cubic-bezier(0.68, -0.55, 0.27, 1.55) infinite alternate forwards;
+  /* filter: blur(50px); */
+  z-index: -1;
+  background: linear-gradient(47deg, black, #0066ff, black);
+}
+
+@keyframes animate {
+  0% {
+    /* translate: 40% -25%; */
+    border-radius: 60% 40% 30% 70% / 100% 85% 92% 74%;
+  }
+
+  50% {
+    /* translate: 0% 13%; */
+    border-radius: 20% 71% 47% 70% / 81% 15% 22% 54%;
+    rotate: 41deg;
+    /* scale: 1.15; */
+  }
+
+  100% {
+    /* translate: -45% 39%; */
+    border-radius: 100% 75% 92% 74% / 60% 80% 30% 70%;
+    rotate: -60deg;
+    scale: 1.05;
+  }
+}
+
+.trim {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradient 10s linear infinite;
+}
+
+.gradient {
+  background: linear-gradient(45deg, #08ffff, #6f89f1, #08ffff);
+  background-size: 400% 400%;
+  animation: gradient 6s ease infinite;
+  /* height: 100vh; */
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
   }
 }
