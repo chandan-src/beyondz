@@ -6,6 +6,11 @@ const heebo = Heebo({
   weight: ['100', '300', '400', '500', '700', '900']
 })
 
+const ibmPlexMono = IBM_Plex_Mono({
+  subsets: ['latin'],
+  weight: ['400', '500'],
+})
+
 
 const Footer = () => {
   return (
@@ -41,19 +46,19 @@ const Footer = () => {
                 {/* Services */}
                 <div>
                   <h3 className="font-bold text-transparent bg-gradient-to-r from-[#193CC4] to-[#08FFFF] bg-clip-text min-h-[60px] flex items-center text-[20px] font-medium">Services</h3>
-                  <ul className="space-y-2 text-xs sm:text-sm font-light">
+                  <ul className={`space-y-2 text-xs sm:text-sm font-light text-[#C4C4C4] ${heebo.className}`}>
                     <li className="text-cyan-400 font-bold">About Us</li>
-                    <li>Our Services</li>
+                    <li>Consulting</li>
+                    <li>Digital Transformation</li>
                     <li>Case Studies</li>
-                    <li>Blog/Feed/News</li>
+                    <li>Blog/NewsFeed</li>
                     <li>Contact Us</li>
                   </ul>
                 </div>
-
                 {/* Social Media */}
                 <div>
                   <h3 className="text-blue-400 text-base sm:text-lg mb-3 sm:mb-4 font-medium font-bold text-transparent bg-gradient-to-r from-[#193CC4] to-[#08FFFF] bg-clip-text  flex items-center">Social Media</h3>
-                  <ul className="space-y-2 text-xs sm:text-sm font-light">
+                  <ul className={`space-y-2 text-[#C4C4C4] text-xs sm:text-sm font-light ${ibmPlexMono.className} `}>
                     <li className="flex items-center">
                       LinkedIn
                       <ArrowUpRight size={12} className="ml-2" />
@@ -70,32 +75,45 @@ const Footer = () => {
                 </div>
               </div>
             </div>
-
             {/* Bottom Section */}
-            <div className="mt-16 sm:mt-24 md:mt-32">
-              {/* Divider */}
-              <div className="border-t border-gray-800 my-4 sm:my-6"></div>
-
-              {/* Footer Bottom */}
-              <div className="text-center sm:text-right">
-                <p className="text-xs text-gray-500">EMAIL US ON:</p>
-                <p className="text-white text-sm sm:text-base">info@beyondz.ai</p>
-              </div>
+            <div className="w-full col-span-2 mt-8">
+          {/* Divider */}
+          <div className="border-t-2 border-dotted border-gray-800 my-4 sm:my-6"></div>
+          {/* Footer Bottom */}
+          <div className={`flex justify-between items-center text-center w-full h-10 px-10 ${ibmPlexMono.className} font-light`}>
+            <p className="text-xs text-gray-500 mr-2">©2024 Beyond Z LLC</p>
+            <div className="flex items-center mx-4">
+              <p className="text-xs text-gray-500 mr-2">EMAIL US ON:</p>
+              <p className="text-xs text-gray-500">info@beyondz.ai</p>
             </div>
+          </div>
+        </div>
           </div>
         </footer>
       </div>
       <div className="grid grid-cols-2 lg:hidden bg-black text-white">
-        <div className="h-90 flex items-center justify-center">
-          <Image src="/images/zgroup.png" alt="Logo" width={100} height={100} className="mt-10 object-contain" />
+        <div className="h-90 flex items-center justify-center ">
+          <Image src="/images/zgroup.png" alt="Logo" width={100} height={100} className="bg-[#1A1F25] mt-10 object-contain p-4 rounded-lg" />
         </div>
         <div className="h-100 flex items-center justify-center">
-          <span>Red</span>
-        </div>
-        <div className="h-90 my-20 flex items-center justify-center">
           <div>
-            <h3 className="text-blue-400 text-base sm:text-lg mb-3 sm:mb-4 font-medium font-bold text-transparent bg-gradient-to-r from-[#193CC4] to-[#08FFFF] bg-clip-text  flex items-center">Social Media</h3>
-            <ul className="space-y-2 text-xs sm:text-sm font-light">
+            <h3 className={`font-bold text-transparent bg-gradient-to-r from-[#193CC4] to-[#08FFFF] bg-clip-text min-h-[60px] flex items-center text-[20px] font-medium ${ibmPlexMono.className} mt-10 font-medium`}>Menu</h3>
+            <ul className={`space-y-2 text-xs sm:text-sm font-light text-[#C4C4C4] ${heebo.className}`}>
+              <li className="text-cyan-400 font-bold">About Us</li>
+              <li>Consulting</li>
+              <li>Digital Transformation</li>
+              <li>Case Studies</li>
+              <li>Blog/NewsFeed</li>
+              <li>Contact Us</li>
+
+            </ul>
+          </div>
+
+        </div>
+        <div className={`h-90 my-20 flex items-center justify-center`}>
+          <div>
+            <h3 className={`text-blue-400 text-base sm:text-lg mb-3 sm:mb-4 font-medium font-bold text-transparent bg-gradient-to-r from-[#193CC4] to-[#08FFFF] bg-clip-text  flex items-center ${heebo.className} font-medium`}>Social Media</h3>
+            <ul className={`space-y-2 text-[#C4C4C4] text-xs sm:text-sm font-light ${ibmPlexMono.className} `}>
               <li className="flex items-center">
                 LinkedIn
                 <ArrowUpRight size={12} className="ml-2" />
@@ -111,10 +129,25 @@ const Footer = () => {
             </ul>
           </div>
         </div>
-        <div className="h-40 flex items-center justify-center">
-          <span>Yellow</span>
+        <div className="h-90 flex items-center justify-center">
+          <Image src="/images/zblack.png" alt="Logo" width={140} height={100} />
+        </div>
+        <div className="w-full col-span-2 mt-8">
+          {/* Divider */}
+          <div className="border-t-2 border-dotted border-gray-800 my-4 sm:my-6"></div>
+
+          {/* Footer Bottom */}
+          <div className={`flex justify-between items-center text-center w-full h-20 px-10 ${ibmPlexMono.className} font-light`}>
+            <p className="text-xs text-gray-500 mr-2">©2024 Beyond Z LLC</p>
+            <div className="flex items-center mx-4">
+              <p className="text-xs text-gray-500 mr-2">EMAIL US ON:</p>
+              <p className="text-xs text-gray-500">info@beyondz.ai</p>
+            </div>
+
+          </div>
         </div>
       </div>
+
     </>
   );
 };

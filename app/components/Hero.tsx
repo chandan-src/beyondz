@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import { ArrowDown } from "lucide-react";
+import LocomotiveScroll from "@/components/L";
 
 const montserrat = Montserrat({ subsets: ['latin'] })
 
@@ -15,6 +16,7 @@ export default function Hero() {
     return (
         <div className="bg-black text-white relative h-screen top-0  overflow-hidden px-4 sm:px-6 md:px-1 h-[calc(100vh-200px)]">
             {/* Background Z */}
+            
             <div className="mt-44"  >
             <motion.div
                 className="absolute mt-[110px] md :mt-[70px] top-0 left-0 right-0 flex  justify-center pt-3 sm:pt-4 md:pt-5"

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Button } from "@/components/ui/button";
 import { ArrowUpRight } from "lucide-react";
 import Link from 'next/link';
@@ -6,11 +6,42 @@ import { motion } from 'framer-motion';
 import { Heebo } from 'next/font/google'
 import Image from "next/image"
 import "../globals.css";
+import gsap from 'gsap';
+
 const heebo = Heebo({
   subsets: ['latin'],
   weight: ['100', '300', '400', '500', '700', '900']
 })
+
 const Training = () => {
+  const paragraphRef = useRef<HTMLDivElement | null>(null);
+
+  const paragraph = `The impact of AI stretches far beyond the people who will be working on it and using it actively.
+For an inclusive world it is imperative that every person in every workplace is given some level of AI training.
+But for each audience, the content might need to be tailored based on their context.
+We offer a range of training services that help everyone, from business leaders, to lower-level employees be a part of the global AI revolution.`;
+
+  const words = paragraph.split(' ');
+
+  useEffect(() => {
+    if (paragraphRef.current) {
+      const words = paragraphRef.current.querySelectorAll('.word');
+      gsap.fromTo(words, {
+        opacity: 0
+      }, {
+        opacity: 1,
+        stagger: 0.1,
+        duration: 0.5,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: paragraphRef.current,
+          start: 'top 80%',
+          toggleActions: 'play none none reverse'
+        }
+      });
+    }
+  }, []);
+
   return (
     <div className="min-h-screen bg-black text-white relative overflow-hidden">
       {/* Background image with overlay */}
@@ -37,26 +68,16 @@ const Training = () => {
             className="w-full flex justify-end items-end flex-col mt-12 sm:mt-16 md:mt-24 lg:mt-32 mx-auto"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
-            viewport={{ once: true, amount: 0.3 }}
+            viewport={{ amount: 0.3 }}
             transition={{ duration: 0.4, ease: "easeOut" }}
           >
-            <motion.p
-              className="text-para mt-20 w-[80%] mx-auto md:mx-0 md:w-[80%] bg-clip-text text-transparent bg-gradient-to-r from-[#808285] to-[#F5F5F5] font-bold mb-20"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{
-                duration: 0.4,
-                staggerChildren: 0.08
-              }}
-            >
 
-              The impact of AI stretches far beyond the people who will be working on it and using it actively.
-              For an inclusive world it is imperative that every person in every workplace is given some level of AI training.
-              But for each audience, the content might need to be tailored based on their context.
-              We offer a range of training services that help everyone, from business leaders, to lower-level employees be a part of the global AI revolution.
 
-            </motion.p>
+            <div ref={paragraphRef} className="text-para mt-20 w-[80%] mx-auto md:mx-0 md:w-[80%] bg-clip-text text-transparent bg-gradient-to-r from-[#808285] to-[#F5F5F5] font-bold mb-20">
+              {words.map((word: string, index: number) => (
+                <span key={index} className="word inline-block">{word}&nbsp;</span>
+              ))}
+            </div>
 
             <motion.div
               className="mt-6 sm:mt-8 flex justify-end w-full pr-8 md:pr-32"
@@ -90,16 +111,16 @@ const Training = () => {
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.4, delay: 0.3 }}
         >
-         
-            <Image
-              src="/images/getai.png"
-              alt="GETAI Foundation"
-              width={130}
-              height={100}
-              className="object-contain"
-              priority
-            />
-        
+
+          <Image
+            src="/images/getai.png"
+            alt="GETAI Foundation"
+            width={130}
+            height={100}
+            className="object-contain"
+            priority
+          />
+
 
           <motion.div
             className={`md:ml-10 text-base sm:text-lg md:text-xl md:text-left  ${heebo.className} text-transparent bg-gradient-to-r from-[#808285] to-[#F5F5F5] bg-clip-text`}

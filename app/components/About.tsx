@@ -65,7 +65,7 @@ const About = () => {
                                      
                                         className="flex justify-center"
                                     >
-                                        <Image src="/images/beyondz.png" alt="Beyondz" width={120} height={60} />
+                                        <Image src="/images/beyondz.png" alt="Beyondz" width={120} height={120} />
                                     </motion.h3>
                                 </div>
                             </motion.div>
