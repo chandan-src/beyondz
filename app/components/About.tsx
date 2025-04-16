@@ -36,7 +36,7 @@ const About = () => {
 
                     >
                         <motion.p
-                            className="text-xl sm:text-2xl md:text-[32px] font-semibold text-[#666666] leading-[18px] md:leading-relaxed line-height-[18px] font-mixed"
+                            className="text-para md:text-[32px] font-semibold text-transparent bg-gradient-to-r from-[#666666] to-[#808285] bg-clip-text leading-[18px] md:leading-relaxed line-height-[18px] font-mixed"
                         >
                             In the history of business & commerce, there has been no game-changer like Artificial Intelligence.
                             "Most earlier transformative technologies like electricity, industrial machines and computers, needed capital investments that could not be afforded by many.
@@ -48,25 +48,27 @@ const About = () => {
                     {/* Image section with text overlay and button */}
                     <div className="flex flex-col lg:flex-row relative mb-8 sm:mb-12 md:mb-16">
                         {/* Image container */}
-                        <div className="relative  w-full overflow-hidden flex justify-center">
+                        <div className="relative w-full overflow-hidden flex justify-center">
                             <motion.div
-
                                 className="relative w-[60%] sm:w-[50%] md:w-[40%] lg:w-[35%] mx-auto"
                             >
-                                <Image
-                                    src="/images/3d.png"
-                                    alt="Beyond Z 3D"
-                                    width={400}
-                                    height={300}
-                                    className=" object-cover transition-transform w-full h-full duration-700 hover:scale-105"
-                                />
-                                <div className="absolute inset-0 flex items-center justify-center">
-                                    <motion.h3
-
-                                        className="flex justify-center"
-                                    >
-                                        <Image src="/images/ztop.png" alt="Beyondz" width={120} height={120} />
-                                    </motion.h3>
+                                <div className="relative">
+                                    <Image
+                                        src="/images/3d.png"
+                                        alt="Beyond Z 3D"
+                                        width={400}
+                                        height={300}
+                                        className="object-cover transition-transform w-full h-full duration-700 hover:scale-105"
+                                    />
+                                    <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                                        <Image 
+                                            src="/images/ztop.png" 
+                                            alt="Beyondz" 
+                                            width={70}
+                                            height={70}
+                                            className="transform transition-transform duration-700 group-hover:scale-105 w-[60px] sm:w-[80px] md:w-[100px] lg:w-[120px]"
+                                        />
+                                    </div>
                                 </div>
                             </motion.div>
                         </div>
@@ -121,7 +123,7 @@ const About = () => {
 
                 >
                     <motion.p
-                        className="text-xl sm:text-2xl md:text-[32px]  font-semibold text-[#666666] leading-[18px] md:leading-relaxed line-height-[18px]"
+                        className="text-para md:text-[32px]  font-semibold text-transparent bg-gradient-to-r from-[#666666] to-[#808285] bg-clip-text leading-[18px] md:leading-relaxed line-height-[18px]"
                     >
                         We let each business decide the extent to which they want to know, engage with or use AI.
                         From consulting, to training, to targeted AI implementations to comprehensive AI first digital transformation,
