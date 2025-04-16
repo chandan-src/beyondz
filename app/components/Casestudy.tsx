@@ -5,8 +5,8 @@ import Link from 'next/link';
 import Image from "next/image";
 
 const ibmPlexMono = IBM_Plex_Mono({
-    subsets: ['latin'],
-    weight: ['400', '500'],
+  subsets: ['latin'],
+  weight: ['400', '500'],
 })
 
 
@@ -48,7 +48,7 @@ const CaseStudyCard = ({ title, subtitle, imageSrc, caseNumber, index }: { title
         </motion.div>
         <Image src="/images/zgroup.png" className="absolute ml-80" alt="Beyond Z" width={40} height={5} />
       </div>
-    
+
       <div className="h-full w-full">
         <motion.img
           src={imageSrc}
@@ -143,14 +143,14 @@ const Index = () => {
         >
           {/* Centered Title */}
           <motion.div
-        className="flex items-center  justify-end md:justify-center mb-16 text-4xl w-full text-center"
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.3 }}
-        transition={{ duration: 0.3, ease: "easeOut" }}
-      >
-        <h1 className="text-heading mr-6 font-bold text-transparent bg-gradient-to-r from-[#193CC4] to-[#08FFFF] bg-clip-text min-h-[60px] flex items-center justify-center">/ Case Studies</h1>
-      </motion.div>
+            className="flex items-center  justify-end md:justify-center mb-16 text-4xl w-full text-center"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
+          >
+            <h1 className="text-heading mr-6 font-bold text-transparent bg-gradient-to-r from-[#193CC4] to-[#08FFFF] bg-clip-text min-h-[60px] flex items-center justify-center">/ Case Studies</h1>
+          </motion.div>
 
           {/* Right-aligned Content */}
           <motion.div
@@ -187,17 +187,46 @@ const Index = () => {
         </div>
 
         {/* Explore Button */}
-        <motion.div 
+        <motion.div
           className="flex justify-center md:justify-end"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.6 }}
         >
-          <Link href="/casestudy" className="uppercase mt-8 border-2 mb-20 text-[#08FFFF] px-14 py-6 w-[392px] h-[52px] flex items-center gap-2 text-sm bg-[#1A1F25] rounded-xl border-transparent [border-image:linear-gradient(to_right,#193CC4,#08FFFF)_1]">
-            <span>EXPLORE OUR CASE STUDIES</span>
-            <ArrowRight size={16} />
-          </Link>
+          <motion.div
+            whileHover={{
+              scale: 1.05,
+              boxShadow: "0 0 15px rgba(8, 255, 255, 0.5)"
+            }}
+            transition={{ type: "spring", stiffness: 400, damping: 10 }}
+            className="mt-8 mb-20"
+          >
+            <Link 
+              href="/casestudy" 
+              className="uppercase border-2 text-[#08FFFF] px-14 py-6 w-[392px] h-[52px] flex items-center gap-2 text-sm bg-[#1A1F25] rounded-xl border-transparent [border-image:linear-gradient(to_right,#193CC4,#08FFFF)_1] relative overflow-hidden group"
+            >
+              <motion.span
+                initial={{ x: 0 }}
+                whileHover={{ x: 5 }}
+                transition={{ type: "spring", stiffness: 300 }}
+                className="flex items-center gap-2 relative z-10"
+              >
+                EXPLORE OUR CASE STUDIES
+                <motion.div
+                  whileHover={{ x: 5 }}
+                  transition={{ type: "spring", stiffness: 500 }}
+                >
+                  <ArrowRight size={16} className="ml-1" />
+                </motion.div>
+              </motion.span>
+              <motion.div 
+                className="absolute inset-0 bg-gradient-to-r from-[#193CC4]/20 to-[#08FFFF]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                initial={{ opacity: 0 }}
+                whileHover={{ opacity: 1 }}
+              />
+            </Link>
+          </motion.div>
         </motion.div>
       </motion.div>
     </div>

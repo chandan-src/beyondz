@@ -60,7 +60,7 @@ const Digital = () => {
     });
 
     return (
-        <main ref={container} className={`main relative min-h-screen bg-black ${heebo.className}`}>
+        <main ref={container} className={`main relative min-h-screen bg-black pb-20 ${heebo.className}`}>
             <div className="pt-20">
                 <motion.div
                     className="flex items-center justify-center mb-16 text-4xl w-full text-center"
@@ -79,7 +79,7 @@ const Digital = () => {
 
                 {/* Content directly below heading */}
                 <div className="flex justify-end">
-                    <motion.p 
+                    <motion.p
                         className={`text-gray-400 mb-20 md:mb-0 p-10 md:p-2 max-w-full lg:max-w-3xl ml-auto md:mr-60 ${ibmPlexMono.className}`}
                         initial={{ opacity: 0, x: -50 }}
                         whileInView={{ opacity: 1, x: 0 }}
@@ -98,11 +98,11 @@ const Digital = () => {
                 {projects.map((project, i) => {
                     const targetScale = 1 - ((projects.length - i) * 0.05);
                     const scale = useTransform(scrollYProgress, project.range || [i * 0.25, 1], [1, targetScale]);
-
+                   
                     return (
                         <motion.div
                             key={`p_${i}`}
-                            className="cardContainer fixed top-0 left-0 w-full h-screen flex items-center justify-center"
+                            className="cardContainer sticky  left-0 w-full h-screen flex items-center justify-center"
                             style={{ scale }}
                             transition={{
                                 duration: 0.8,
@@ -126,7 +126,33 @@ const Digital = () => {
                                 }
                             }}
                         >
-                            <div className="relative z-10 w-full">
+                            <motion.div className="relative z-10 w-full mt-20"
+                            
+                                initial={{
+                                    filter: "blur(10px)",
+                                    y: 20,
+                                    opacity: 0.5,
+                                }}
+                                whileInView={{
+                                    filter: "blur(0px)",
+                                    y: 0,
+                                    opacity: 1,
+                                }}
+                                viewport={{ once: false }}
+                                exit={{
+                                    filter: "blur(10px)",
+                                    y: 10,
+                                    opacity: 0.5,
+                                }}
+                                transition={{
+                                    type: "spring",
+                                    stiffness: 100,
+                                    damping: 15,
+                                    duration: 0.5,
+                                    delay: 0.2,
+                                }}
+                        
+                            >
                                 <div className="transition-all duration-300 relative mb-4 w-full overflow-hidden opacity-100 border-2 border-transparent [border-image:linear-gradient(to_right,#193CC4,#08FFFF)_1]">
                                     <div className="bg-black rounded-xl p-6 md:p-4 flex flex-col min-h-[160px]">
                                         <div className="flex items-center text-center md:text-start  mb-1 md:mb-2 px-3">
@@ -165,7 +191,7 @@ const Digital = () => {
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </motion.div>
                         </motion.div>
                     );
                 })}

@@ -56,7 +56,7 @@ We offer a range of training services that help everyone, from business leaders,
           >
 
 
-            <div ref={paragraphRef} className="text-para mt-20 w-[80%] mx-auto md:mx-0 md:w-[80%] bg-clip-text text-transparent bg-gradient-to-r from-[#808285] to-[#F5F5F5] font-bold mb-20">
+            <div ref={paragraphRef} className="text-para mt-20 w-[80%] mx-auto md:mx-0 md:w-[70%] mr-8 md:mr-16 lg:mr-40 bg-clip-text text-transparent bg-gradient-to-r from-[#808285] to-[#F5F5F5] font-bold mb-20">
               {words.map((word: string, index: number) => (
                 <span key={index} className="word inline-block">{word}&nbsp;</span>
               ))}
@@ -64,24 +64,48 @@ We offer a range of training services that help everyone, from business leaders,
 
             <motion.div
               className="mt-6 sm:mt-8 flex justify-end w-full pr-8 md:pr-32"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.4, delay: 0.6 }}
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: false, amount: 0.3 }}
+              transition={{
+                duration: 0.6,
+                type: "spring",
+                stiffness: 200,
+                damping: 20,
+                delay: 0.3
+              }}
             >
-              <Link href="/consult"
-                className="uppercase text-center ml-2 md:ml-0 lg:text-start lg:mt-0 mt-8 border-2 mb-20 text-[#08FFFF] px-10 py-6 w-[392px] h-[52px] flex items-center gap-2 text-sm bg-[#1A1F25] rounded-xl border-transparent [border-image:linear-gradient(to_right,#193CC4,#08FFFF)_1]"
+              <motion.div
+                whileHover={{
+                  scale: 1.05,
+                  boxShadow: "0 0 15px rgba(8, 255, 255, 0.5)"
+                }}
+                transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                className='lg:mt-0 mt-8 ml-2 md:ml-0'
               >
-                EXPLORE our consulting services
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                  className="w-4 h-4 ml-1"
+                <Link href="/consult"
+                  className="uppercase text-center  lg:text-start  border-2  text-[#08FFFF] px-10 py-6 w-[392px] h-[52px] flex items-center gap-2 text-sm bg-[#1A1F25] rounded-xl border-transparent [border-image:linear-gradient(to_right,#193CC4,#08FFFF)_1]"
                 >
-                  <path fillRule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clipRule="evenodd" />
-                </svg>
-              </Link>
+                  <motion.span
+                    initial={{ x: 0 }}
+                    whileHover={{ x: 5 }}
+                    transition={{ type: "spring", stiffness: 300 }}
+                    className="flex items-center gap-2"
+                  >
+                    EXPLORE our consulting services
+                    <motion.svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                      className="w-4 h-4 ml-1"
+                      whileHover={{ x: 5 }}
+                      transition={{ type: "spring", stiffness: 500 }}
+                    >
+                      <path fillRule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clipRule="evenodd" />
+                    </motion.svg>
+                  </motion.span>
+                </Link>
+              </motion.div>
             </motion.div>
           </motion.div>
         </div>

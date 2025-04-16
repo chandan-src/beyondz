@@ -73,15 +73,44 @@ const About = () => {
 
                         {/* Right side button */}
                         <div className="relative lg:absolute mt-4 lg:mt-0 flex justify-center lg:top-1/2 lg:right-4 xl:right-8 2xl:right-16 lg:transform lg:-translate-y-1/2 z-10">
-                            <Link
-                                href="/about"
-                                className={`inline-flex items-center justify-center w-[250px] sm:w-[280px] md:w-[308px] h-[45px] sm:h-[52px] bg-transparent border rounded-sm border-[black] text-black uppercase lg:mb-20 lg:ml-[-20] ${ibmPlexMono.className} font-medium`}
+                            <motion.div
+                                whileHover={{
+                                    scale: 1.05,
+                                    boxShadow: "0 0 15px rgba(0, 0, 0, 0.5)"
+                                }}
+                                transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                                className='lg:mb-20'
                             >
-                                More About Us
-                                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                                </svg>
-                            </Link>
+                                <Link
+                                    href="/about"
+                                    className={`inline-flex items-center justify-center w-[250px] sm:w-[280px] md:w-[308px] h-[45px] sm:h-[52px] bg-transparent border rounded-sm border-[black] text-black uppercase  lg:ml-[-20] ${ibmPlexMono.className} font-medium relative overflow-hidden group`}
+                                >
+                                    <motion.span
+                                        initial={{ x: 0 }}
+                                        whileHover={{ x: 5 }}
+                                        transition={{ type: "spring", stiffness: 300 }}
+                                        className="flex items-center"
+                                    >
+                                        More About Us
+                                        <motion.svg 
+                                            xmlns="http://www.w3.org/2000/svg" 
+                                            className="h-4 w-4 ml-2" 
+                                            fill="none" 
+                                            viewBox="0 0 24 24" 
+                                            stroke="currentColor"
+                                            whileHover={{ x: 5 }}
+                                            transition={{ type: "spring", stiffness: 500 }}
+                                        >
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                        </motion.svg>
+                                    </motion.span>
+                                    <motion.div 
+                                        className="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                                        initial={{ opacity: 0 }}
+                                        whileHover={{ opacity: 1 }}
+                                    />
+                                </Link>
+                            </motion.div>
                         </div>
                     </div>
                 </div>

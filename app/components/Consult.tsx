@@ -6,6 +6,12 @@ import { motion } from "framer-motion";
 import Image from "next/image"
 import "../globals.css";
 import { useRef } from "react";
+import { IBM_Plex_Mono } from 'next/font/google'
+
+const ibmPlexMono = IBM_Plex_Mono({
+  subsets: ['latin'],
+  weight: ['400', '500'],
+})
 
 const heebo = Heebo({
   subsets: ['latin'],
@@ -22,7 +28,7 @@ const Consult = () => {
   ];
 
   return (
-    <div ref={containerRef} className={`relative text-[#808285] text-[40px] ${heebo.className} min-h-screen`}>
+    <div ref={containerRef} id="consult" className={`relative text-[#808285] text-[40px] ${heebo.className} min-h-screen`}>
       {/* Background image */}
       <div className="absolute inset-0 z-0">
         <div className="relative w-full h-full">
@@ -44,6 +50,7 @@ const Consult = () => {
           initial={{ opacity: 0, y: -50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: false, amount: 0.3 }}
+          exit={{ opacity: 0, y: -50 }}
           transition={{
             duration: 0.8,
             type: "spring",
@@ -64,20 +71,34 @@ const Consult = () => {
         {/* Center content */}
         <div className="px-10">
           {/* Right section */}
-          <div className="flex flex-col md:items-end items-center mb-0 mt-auto pt-[40vh]">
+          <div className="flex flex-col md:items-end items-center mb-0 mt-auto pt-[40vh] ">
             {/* Description text */}
-            {lines.map((line, index) => (
-              <motion.p
-                key={index}
-                className="text-para md:w-[80%] w-[90%] mx-auto md:mx-0 bg-clip-text text-transparent bg-gradient-to-r from-[#808285] to-[#F5F5F5] font-bold mb-4"
-                initial={{ opacity: 0.3, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ amount: 0.1 }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-              >
-                {line}
-              </motion.p>
-            ))}
+            <motion.div
+
+
+              className={`text-para flex  flex-wrap gap-y-2 relative z-0 text-3xl font-bold lg: ml-20 ${heebo.className} `}
+            >
+              {[
+                "We", "have", "consulting", "packages", "for", "companies", "at", "all", "stages", "in", "their", "AI", "adoption", "journey.",
+                "This", "includes", "companies", "who", "are", "merely", "trying", "to", "understand", "AI", "and", "their", "options", "through", "our", "ReadinessReview.",
+                "AI", "service,", "as", "well", "as", "companies", "who", "would", "like", "guidance", "on", "how", "to", "transform", "themselves", "and", "be", "AI", "first."
+              ].map((word, index) => (
+                <motion.span
+                  key={index}
+                  className="mr-1 text-md "
+                  initial={{ opacity: 0.4 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: false, amount: 0.6 }}
+                  transition={{
+                    duration: 0.4,
+                    delay: 0.1,
+                    ease: "easeOut",
+                  }}
+                >
+                  {word}
+                </motion.span>
+              ))}
+            </motion.div>
 
             {/* Explore button with enhanced animations */}
             <motion.div

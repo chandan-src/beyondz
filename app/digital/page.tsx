@@ -12,11 +12,12 @@ const DigitalPage = () => {
     const contentRef = useRef<HTMLDivElement | null>(null);
     const { scrollYProgress } = useScroll({
         target: contentRef,
-        offset: ["start 70%", "end 60%"]
-    });
-
-    const scale = useTransform(scrollYProgress, [0, 1], [0.7, 1]);
-    const opacity = useTransform(scrollYProgress, [0, 1], [0.5, 1]);
+        offset: ["start end", "end start"],
+      });
+    
+      // Entire block scroll animation
+      const scale = useTransform(scrollYProgress, [0, 1], [0.95, 1]);
+      const opacity = useTransform(scrollYProgress, [0, 1], [0.5, 1]);
 
     return (
         <motion.div className="min-h-screen bg-black text-white">
@@ -87,34 +88,76 @@ const DigitalPage = () => {
                                 </div>
                                 <div className="w-10 h-10 border border-blue-400 rounded-lg flex items-center justify-center">
                                     <div className="w-6 h-6 bg-blue-400/20"></div>
-                                </div>
+                                </div> 
                             </div>
                         </div>
                     </div>
                 </motion.div>
-                <div ref={contentRef} className="flex flex-wrap">
+                <div className="flex flex-wrap">
                     {[
                         "success", "coaches,", "so", "manam", "edhina", "institute", "loo", "cherithey", "once", "payment", "chesaka", "nuvvu", "em", "chestunnav", "neerchukuntunnava", "ledha", "ani", "patinchukoru…", "kani", "ikkada", "ala", "kaadhu", "they", "are", "providing", "success", "coaches.", "Veelu", "mee", "course", "starting", "nundi", "ending", "varaku", "meethone", "untu", "meeku", "ee", "problem", "vachina", "support", "ivvadaniki", "ready", "gaa", "untaaru…",
                         "Anthey", "kadhu….", "Ikkada", "mega", "drives", "jaruguthu", "untay", "every", "month", "100+", "companies", "Nxtwave", "students", "nii", "hire", "chesukodaniki", "vasthunnay,", "which", "is", "not", "an", "simple", "thing(showing", "testimonials", "from", "portal", "itself).", "Idi", "continuous", "ga", "jarugutune", "untundi.", "Just", "manam", "nerchukuni,", "ready", "ga", "undali", "anthe.",
                         "And", "placement", "preparation", "loo", "they", "are", "providing", "AI", "build", "mock", "interviews", ",", "where", "you", "can", "practice", "and", "build", "confidence", "inka", "ila", "chala", "ante", "chala", "provide", "chesthunnaru…", "Ive", "kakunda", "konni", "extra", "courses", "kuda", "unnai.", "Bayata", "ivi", "cheyyalante", "min.", "1Lakh", "easy", "ga", "avutundi.", "Alantidi", "course", "tho", "paate,", "extra", "amount", "em", "teeskokunda", "offer", "chestunaru.",
                         "Okavela", "nenu", "cheppedi", "miku,", "nijama,", "kaada", "ani", "doubt", "unte,", "ee", "link", "description", "lo", "pedatanu.", "Mire", "try", "chesi", "oka", "manchi", "decision", "teeskondi…."
                     ].map((word, index) => (
-                        <motion.span 
-                            key={index}
-                            className="mr-1 text-gray-300 text-md"
-                            initial={{ color: "black", opacity: 0.4, y: 10 }}
-                            whileInView={{ color: "white", opacity: 1, y: 0 }}
-                            viewport={{ once: false, amount: 0.8 }}
-                            transition={{ 
-                                duration: 0.5, 
-                                delay: 0.1,
-                                ease: "easeOut" 
-                            }}
-                        >
-                            {word}
-                        </motion.span>
+                        <motion.span
+                        key={index}
+                        className="mr-1 text-md"
+                        initial={{ opacity: 0.3, y: 15 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: false, amount: 0.4 }}
+                        transition={{
+                          duration: 0.4,
+                          delay: index * 0.02,
+                          ease: "easeOut"
+                        }}
+                        style={{ color: "#ffffff" }}
+                      >
+                        {word}
+                      </motion.span>
                     ))}
                 </div>
+
+                <div className="relative overflow-hidden py-12 px-4">
+      {/* Gradient overlay at the bottom */}
+      <div
+        className="absolute bottom-0 left-0 w-full h-24 pointer-events-none z-10"
+        style={{
+          background: "linear-gradient(to top, rgba(0,0,0,0.9), rgba(0,0,0,0.2), rgba(0,0,0,0))",
+        }}
+      />
+
+      {/* Animated word block */}
+      <motion.div
+       
+       
+        className="flex flex-wrap gap-y-2 relative z-0 text-3xl text-white"
+      >
+         {[
+                        "success", "coaches,", "so", "manam", "edhina", "institute", "loo", "cherithey", "once", "payment", "chesaka", "nuvvu", "em", "chestunnav", "neerchukuntunnava", "ledha", "ani", "patinchukoru…", "kani", "ikkada", "ala", "kaadhu", "they", "are", "providing", "success", "coaches.", "Veelu", "mee", "course", "starting", "nundi", "ending", "varaku", "meethone", "untu", "meeku", "ee", "problem", "vachina", "support", "ivvadaniki", "ready", "gaa", "untaaru…",
+                        "Anthey", "kadhu….", "Ikkada", "mega", "drives", "jaruguthu", "untay", "every", "month", "100+", "companies", "Nxtwave", "students", "nii", "hire", "chesukodaniki", "vasthunnay,", "which", "is", "not", "an", "simple", "thing(showing", "testimonials", "from", "portal", "itself).", "Idi", "continuous", "ga", "jarugutune", "untundi.", "Just", "manam", "nerchukuni,", "ready", "ga", "undali", "anthe.",
+                        "And", "placement", "preparation", "loo", "they", "are", "providing", "AI", "build", "mock", "interviews", ",", "where", "you", "can", "practice", "and", "build", "confidence", "inka", "ila", "chala", "ante", "chala", "provide", "chesthunnaru…", "Ive", "kakunda", "konni", "extra", "courses", "kuda", "unnai.", "Bayata", "ivi", "cheyyalante", "min.", "1Lakh", "easy", "ga", "avutundi.", "Alantidi", "course", "tho", "paate,", "extra", "amount", "em", "teeskokunda", "offer", "chestunaru.",
+                        "Okavela", "nenu", "cheppedi", "miku,", "nijama,", "kaada", "ani", "doubt", "unte,", "ee", "link", "description", "lo", "pedatanu.", "Mire", "try", "chesi", "oka", "manchi", "decision", "teeskondi…."
+                    ].map((word, index) => (
+          <motion.span
+            key={index}
+            className="mr-1 text-md text-white"
+            initial={{  opacity: 0.4 }}
+            whileInView={{  opacity: 1 }}
+            viewport={{ once: false, amount: 0.6 }}
+            transition={{
+              duration: 0.4,
+              delay:  0.1,
+              ease: "easeOut",
+            }}
+          >
+            {word}
+          </motion.span>
+        ))}
+      </motion.div>
+    </div>
+
+
                 {/* Card 2 - Predictive Analytics */}
                 <div className="border border-blue-900/50 rounded-lg p-6 mb-6 relative bg-black/80">
                     <div className="flex justify-between">
