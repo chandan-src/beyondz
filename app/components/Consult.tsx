@@ -112,6 +112,7 @@ const Consult = () => {
                 damping: 20,
                 delay: 0.3
               }}
+
             >
               <motion.div
                 whileHover={{
@@ -119,6 +120,7 @@ const Consult = () => {
                   boxShadow: "0 0 15px rgba(8, 255, 255, 0.5)"
                 }}
                 transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                
               >
                 <Link
                   href="/consult"

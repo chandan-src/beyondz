@@ -84,7 +84,7 @@ We offer a range of training services that help everyone, from business leaders,
                 className='lg:mt-0 mt-8 ml-2 md:ml-0'
               >
                 <Link href="/consult"
-                  className="uppercase text-center  lg:text-start  border-2  text-[#08FFFF] px-10 py-6 w-[392px] h-[52px] flex items-center gap-2 text-sm bg-[#1A1F25] rounded-xl border-transparent [border-image:linear-gradient(to_right,#193CC4,#08FFFF)_1]"
+                  className="uppercase text-center  lg:text-start  border-2 mx-auto  text-[#08FFFF] px-2 py-6  w-[350px] md:w-[392px] h-[52px] flex items-center gap-2 text-sm bg-[#1A1F25] rounded-xl border-transparent [border-image:linear-gradient(to_right,#193CC4,#08FFFF)_1]"
                 >
                   <motion.span
                     initial={{ x: 0 }}

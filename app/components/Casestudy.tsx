@@ -204,7 +204,7 @@ const Index = () => {
           >
             <Link 
               href="/casestudy" 
-              className="uppercase border-2 text-[#08FFFF] px-14 py-6 w-[392px] h-[52px] flex items-center gap-2 text-sm bg-[#1A1F25] rounded-xl border-transparent [border-image:linear-gradient(to_right,#193CC4,#08FFFF)_1] relative overflow-hidden group"
+              className="uppercase border-2 text-[#08FFFF] px-10 py-6 w-[350px] h-[52px] flex items-center gap-2 text-sm bg-[#1A1F25] rounded-xl border-transparent [border-image:linear-gradient(to_right,#193CC4,#08FFFF)_1] relative overflow-hidden group"
             >
               <motion.span
                 initial={{ x: 0 }}
